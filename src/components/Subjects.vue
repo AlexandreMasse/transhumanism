@@ -17,6 +17,6 @@ export default {
 
 <style scoped lang="scss">
 h1{
-  color: black;
+  font-size: 20px;
 }
 </style>
