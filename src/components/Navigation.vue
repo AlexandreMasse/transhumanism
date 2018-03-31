@@ -1,30 +1,86 @@
 <template>
   <nav id="navigation">
-    <router-link :to="{ name: 'home'}">Home</router-link>
-    <router-link :to="{ name: 'about'}">About</router-link>
-    <router-link :to="{ name: 'subjects'}">Subject</router-link>
-    <router-link :to="{ name: 'sources'}">Sources</router-link>
+    <router-link :to="{ name: 'sources'}" class="route-sources">Sources</router-link>
+    <router-link :to="{ name: 'subjects'}" class="route-subjects">Subjects</router-link>
+    <router-link :to="{ name: 'about'}" class="route-about">About</router-link>
+    <router-link :to="{ name: 'home'}" class="route-home">Home</router-link>
+    <div class="route-marker-container">
+      <div class="route-marker"></div>
+    </div>
   </nav>
 </template>
 
 <script>
+import { TweenLite, Power1 } from 'gsap'
 export default {
   name: 'Navigation',
   data () {
     return {
     }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.changeRouteMarker(to)
+    }
+  },
+  methods: {
+    changeRouteMarker (newRoute) {
+      let currentRouteName = newRoute.name
+      let currentRouteLink = document.querySelector('.route-' + currentRouteName)
+      TweenLite.to(this.marker, 0.2, {
+        left: currentRouteLink.offsetLeft,
+        width: currentRouteLink.offsetWidth,
+        ease: Power1.easeInOut
+      })
+    }
+  },
+  mounted () {
+    this.marker = document.querySelector('.route-marker')
+    this.changeRouteMarker(this.$route)
   }
+
 }
 </script>
 
 <style lang="scss" scoped>
 #navigation {
-  margin-bottom: 20px;
+  display: inline-block;
+  position: absolute;
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: left;
+  left: 40px;
+  top:35px;
+
   a {
-    margin: 0 10px;
-    font-size: 20px;
+    margin: 0 30px;
+    padding-top: 10px;
     color: white;
     text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+  }
+
+  .route-marker-container {
+    position: relative;
+    background-color: #303030;
+    width: 100%;
+    margin-top: 10px;
+    .route-marker {
+      position: relative;
+      top: 0;
+      left: 0;
+      background-color: #979797;
+      height: 1px;
+    }
   }
 }
 </style>

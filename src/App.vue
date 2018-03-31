@@ -10,7 +10,18 @@ import Navigation from '@/components/Navigation.vue'
 
 export default {
   name: 'App',
-  components: {Navigation}
+  components: {Navigation},
+  methods: {
+    // checkNavigationRoute (routeName) {
+    //   // return this.$route.path === this.$router.match(routeName).fullPath
+    // }
+  },
+  mounted () {
+    // console.log(this.checkNavigationRoute('about'))
+  },
+  updated () {
+    // console.log(this.checkNavigationRoute('about'))
+  }
 }
 </script>
 
@@ -19,7 +30,6 @@ export default {
   font-family: 'Inconsolata', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 80px;
   text-align: center;
 
 }
