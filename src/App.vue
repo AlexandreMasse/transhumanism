@@ -2,6 +2,10 @@
   <div id="app">
     <navigation></navigation>
     <router-view/>
+    <a href="https://www.gobelins.fr/" class="gobelins-logo">
+      <img src="@/assets/images/gobelins_logo.png" alt="">
+    </a>
+
   </div>
 </template>
 
@@ -31,6 +35,17 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+
+  a.gobelins-logo {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    cursor: pointer;
+    img {
+      height: 40px;
+      filter: grayscale(100%)
+    }
+  }
 
 }
 </style>

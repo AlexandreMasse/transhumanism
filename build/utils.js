@@ -62,7 +62,7 @@ exports.cssLoaders = function (options) {
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass', {
       //import global scss
-      data: '@import "~@/stylesheets/global.scss";'
+      data: '@import "~@/assets/stylesheets/global.scss";'
     }),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')

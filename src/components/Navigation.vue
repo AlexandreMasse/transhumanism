@@ -45,7 +45,7 @@ export default {
 <style lang="scss" scoped>
 #navigation {
   display: inline-block;
-  position: absolute;
+  position: fixed;
   transform: rotate(-90deg) translateX(-100%);
   transform-origin: left;
   left: 40px;
@@ -53,11 +53,12 @@ export default {
 
   a {
     margin: 0 30px;
-    padding-top: 10px;
-    color: white;
+    padding: 15px 0 10px 0;
+    color: #A7A7A7;
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
+    transition: color 0.2s ease-in-out;
 
     &:first-of-type {
       margin-left: 0;
@@ -65,6 +66,11 @@ export default {
 
     &:last-of-type {
       margin-right: 0;
+    }
+
+    &.router-link-exact-active {
+      transition: color 0.2s ease-in-out;
+      color: white;
     }
 
   }
