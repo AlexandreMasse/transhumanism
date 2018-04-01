@@ -44,6 +44,7 @@ export default {
 
 <style lang="scss" scoped>
 #navigation {
+  z-index: 100;
   display: inline-block;
   position: fixed;
   transform: rotate(-90deg) translateX(-100%);

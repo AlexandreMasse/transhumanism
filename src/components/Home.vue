@@ -41,7 +41,6 @@ export default {
     width: 700px;
     color: #F8F8F8;
     margin: 0 auto;
-    margin-bottom: 600px;
   }
 }
 </style>
