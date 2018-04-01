@@ -3,57 +3,14 @@
     <h1>Sources</h1>
 
     <div class="sources-container">
-      <div class="month">
-        <p class="month-title">04/2018</p>
+      <div class="month" v-for="(month, index) in sourcesByMonth" :key="index">
+        <p class="month-title">{{month.monthName}}</p>
         <div class="sources">
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
+          <div class="source" v-for="(source, index) in month.sources" :key="index">
+            <p class="date">{{source.date}}</p>
+            <p class="title"><a :href="source.link">{{source.title}}</a></p>
+            <p class="author">Par {{source.author}} dans <span>{{source.media}}</span></p>
           </div>
-
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
-          </div>
-
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
-          </div>
-
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
-          </div>
-
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
-          </div>
-
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
-          </div>
-
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
-          </div>
-
-          <div class="source">
-            <p class="date">18 avril</p>
-            <p class="title"><a href="#">Titre du super article sur le trashumanism</a></p>
-            <p class="author">Par Alexandre Massé dans <span>Le Monde</span></p>
-          </div>
-
         </div>
       </div>
     </div>
@@ -62,10 +19,12 @@
 </template>
 
 <script>
+import sourcesByMonth from '@/data/sources.json'
 export default {
   name: 'Sources',
   data () {
     return {
+      sourcesByMonth
     }
   }
 }
@@ -85,6 +44,7 @@ export default {
   .sources-container {
     text-align: left;
     .month {
+      margin-bottom: 40px;
 
       p.month-title {
         width: 100%;

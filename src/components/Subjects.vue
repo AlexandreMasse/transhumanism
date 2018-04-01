@@ -16,7 +16,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h1{
-  font-size: 20px;
+#subjects {
+  padding-top: 40px;
+  h1 {
+    font-size: 26px;
+    font-weight: 400;
+  }
 }
 </style>
