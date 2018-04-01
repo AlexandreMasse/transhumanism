@@ -1,6 +1,5 @@
 <template>
   <div id="about">
-    <img src="@/assets/images/bioshock.png" alt="" class="bioshock">
     <h1>About</h1>
     <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam obcaecati quisquam debitis id animi nisi dolor et ex maxime modi magnam aliquam rem atque pariatur, cupiditate eius voluptates ducimus ratione. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam obcaecati quisquam debitis id animi nisi dolor et ex maxime modi magnam aliquam rem atque pariatur, cupiditate eius voluptates ducimus ratione.</p>
     <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam obcaecati quisquam debitis id animi nisi dolor et ex maxime modi magnam aliquam rem atque pariatur, cupiditate eius voluptates ducimus ratione. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam obcaecati quisquam debitis id animi nisi dolor et ex maxime modi magnam aliquam rem atque pariatur, cupiditate eius voluptates ducimus ratione.</p>
@@ -16,6 +15,7 @@
         <p>Develop by <a href="#">Alexandre Masse</a> & <a href="#">Audren Mauplot</a> - Design by <a href="#">Justine Lenouvel</a> & <a href="#">Justine Lenouvel</a></p>
       </div>
     </div>
+    <img src="@/assets/images/bioshock.png" alt="" class="bioshock">
   </div>
 </template>
 
@@ -47,23 +47,12 @@ padding-left: 40px;
     text-align: left;
   }
 
-  img.bioshock {
-    z-index: -1;
-    position: fixed;
-    top: 50vh;
-    right: 0;
-    height: 650px;
-    transform: translateY(-55%) translateX(50%);
-    opacity: 0.25;
-    pointer-events: none;
-
-  }
-
   .credit-container {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    width: 100%;
     .school {
       display: flex;
       flex-direction: column;
@@ -93,6 +82,18 @@ padding-left: 40px;
         color: inherit;
       }
     }
+  }
+
+  img.bioshock {
+    z-index: -1;
+    position: fixed;
+    top: 50vh;
+    right: 0;
+    height: 650px;
+    transform: translateY(-55%) translateX(50%);
+    opacity: 0.25;
+    pointer-events: none;
+
   }
 }
 
