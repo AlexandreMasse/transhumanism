@@ -12,7 +12,7 @@
         <p>BDDI 2018</p>
       </div>
       <div class="students">
-        <p>Develop by <a href="#">Alexandre Masse</a> & <a href="#">Audren Mauplot</a> - Design by <a href="#">Justine Lenouvel</a> & <a href="#">Justine Lenouvel</a></p>
+        <p>Develop by <a href="#">Alexandre Masse</a> & <a href="#">Audren Mauplot</a> - Design by <a href="#">Justine Lenouvel</a> & <a href="#">Cassandre Leguay</a></p>
       </div>
     </div>
     <img src="@/assets/images/bioshock.png" alt="" class="bioshock">
