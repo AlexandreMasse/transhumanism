@@ -1,73 +1,101 @@
 [
   {
-    "monthName": "September",
-    "sources": [
-      {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
-      },
-      {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
-      },
-      {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
-      },
-      {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
-      }
-    ]
-  },
-  {
     "monthName": "October",
     "sources": [
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "10/10/2017",
+        "title": "La mémoire dans la peau",
+        "link": "https://www.latribune.fr/opinions/blogs/homo-numericus/la-memoire-dans-la-peau-753416.html",
+        "author": "Philippe Boyer",
+        "media": "La Tribune"
       },
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "15/10/2017",
+        "title": "Soldat augmenté : une combinaison de combat résiste aux explosions nucléaires",
+        "link": "https://iatranshumanisme.com/2017/10/15/soldat-augmente-combinaison-combat-resiste-explosions-nucleaires/",
+        "author": "Jaesa",
+        "media": "iatranshumanisme"
       },
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "7/10/2017",
+        "title": "DeepMind vient de créer un comité d’éthique pour l’intelligence artificielle",
+        "link": "https://iatranshumanisme.com/2017/10/07/deepmind-vient-de-creer-comite-dethique-lintelligence-artificielle/",
+        "author": "Jaesa",
+        "media": "iatranshumanisme"
       },
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "12/10/2017",
+        "title": "Tables rondes sur le transhumanisme: les raisons d'une annulation... très discrète",
+        "link": "https://www.placegrenet.fr/2017/10/12/tables-rondes-transhumanisme-raisons-annulation-tres-discrete/156685",
+        "author": "FM",
+        "media": "Place Gre'net"
+      },
+      {
+        "date": "26/10/2017",
+        "title": "« L'homme augmenté est un mythe »",
+        "link": "https://usbeketrica.com/article/l-homme-augmente-est-un-mythe",
+        "author": "Lila Meghraoua",
+        "media": "Usbek & Rica"
+      },
+      {
+        "date": "27/10/2017",
+        "title": "L’intelligence artificielle nous permettra de contrôler nos maisons par la pensée",
+        "link": "https://www.pourquoidocteur.fr/Articles/Vu-dans-la-presse/23260-Genetique-reparation-portee-main-transhumanisme",
+        "author": "Jaesa",
+        "media": "iatranshumanisme"
+      },
+      {
+        "date": "27/10/2017",
+        "title": "L’Arabie Saoudite accorde la citoyenneté à un robot",
+        "link": "https://iatranshumanisme.com/2017/10/27/larabie-saoudite-accorde-citoyennete-a-robot/",
+        "author": "Jaesa",
+        "media": "iatranshumanisme"
+      },
+      {
+        "date": "27/10/2017",
+        "title": "Dopage technologique et homme augmenté : une autre idée du sport ?",
+        "link": "http://www.cnetfrance.fr/news/dopage-technologique-et-homme-augmente-une-autre-idee-du-sport-39859238.htm",
+        "author": "Fabien Soyez",
+        "media": "Cnet France"
+      },
+      {
+        "date": "29/10/2017",
+        "title": "Un dispositif cérébral augmente la vitesse d’apprentissage de 40%",
+        "link": "https://iatranshumanisme.com/2017/10/29/dispositif-cerebral-augmente-vitesse-dapprentissage-de-40/",
+        "author": "Jaesa",
+        "media": "iatranshumanisme"
       }
     ]
   },
   {
     "monthName": "November",
     "sources": [
+      {
+        "date": "18 septembre",
+        "title": "Titre du super article sur le trashumanism",
+        "link": "#",
+        "author": "Alexandre Massé",
+        "media": "Le Monde"
+      }
+    ]
+  },
+  {
+    "monthName": "December",
+    "sources": [
+      {
+        "date": "07/12/2017",
+        "title": "Homme augmenté : Nous serons tentés de remplacer tous nos organes, même notre cerveau",
+        "link": "https://acteursdeleconomie.latribune.fr/debats/conferences/generation-2050/2017-12-07/homme-augmente-nous-serons-tentes-de-remplacer-tous-nos-organes-meme-notre-cerveau-760735.html",
+        "author": "Quentin Doumayrou",
+        "media": "Acteurs de l'économie"
+      },
+      {
+        "date": "09/12/17",
+        "title": "L’intelligence artificielle, c’est maintenant !",
+        "link": "https://www.lesnumeriques.com/vie-du-net/l-intelligence-artificielle-c-est-maintenant-a3425.html",
+        "author": "Marco Mosca",
+        "media": "Les Numériques"
+      },
       {
         "date": "18 septembre",
         "title": "Titre du super article sur le trashumanism",

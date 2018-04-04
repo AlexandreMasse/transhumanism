@@ -39,12 +39,12 @@
       <div class="main">
         <span>
           <h3>B.L.</h3>
-          <p>Scientist biologist <br>
-            Against transhumanism <br>
-            34 years old <br>
-            Married, 2 children <br>
-            Interested about technological progress and innovation <br>
-            Is worried about the future of her children <br>
+          <p>Scientist biologist<br>
+            Against transhumanism<br>
+            34 years old<br>
+            Married, 2 children<br>
+            Interested about technological progress and innovation<br>
+            Is worried about the future of her children<br>
             Wary about new technologies and their consequences</p>
           </span>
         <img src="@/assets/images/protagonist1.png" alt="">
@@ -62,10 +62,10 @@
         <span>
           <h3>N.A.</h3>
           <p>Writer <br>
-            For transhumanism <br>
-            45 years old <br>
+            For transhumanism<br>
+            45 years old<br>
             Young father<br>
-            Interested about technological progress and innovation <br>
+            Interested about technological progress and innovation<br>
             Afraid of death<br>
             Fascinated about new technologies that allow us to live longer</p>
           </span>
