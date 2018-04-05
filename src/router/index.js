@@ -8,6 +8,7 @@ import Sources from '@/components/Sources'
 Vue.use(Router)
 
 export default new Router({
+  base: '/transhumanism/',
   mode: 'history',
   routes: [
     {
