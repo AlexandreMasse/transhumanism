@@ -18,7 +18,7 @@
     </div>
 
     <!--SECTION DISCOVER PROTAGONISTS -->
-    <div class="section protagonist">
+    <div id="protagonists" class="section protagonist">
       <div class="logo">
         <img src="@/assets/images/bioshock.png" alt="">
         <h2>Transhumanism</h2>
@@ -76,6 +76,7 @@
 
 <script>
 import HomeSideProgression from '@/components/HomeSideProgression'
+
 export default {
   name: 'Home',
   components: {HomeSideProgression},
@@ -86,7 +87,7 @@ export default {
   },
   methods: {
     scrollDown: function () {
-      console.log('ok')
+      document.querySelector('#protagonists').scrollIntoView()
     }
   }
 }

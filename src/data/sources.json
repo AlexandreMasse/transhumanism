@@ -97,25 +97,131 @@
         "media": "Les Numériques"
       },
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "19/12/17",
+        "title": "Aimee Mullins, conversation avec une femme augmentée",
+        "link": "https://www.letemps.ch/sciences/aimee-mullins-conversation-une-femme-augmentee",
+        "author": "Mehdi Atmani",
+        "media": "Le Temps"
       },
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "27/12/17",
+        "title": "Humain augmenté : voici la double main bionique !",
+        "link": "http://sciencepost.fr/2017/12/humain-augmente-voici-double-main-bionique/",
+        "author": "Yohan Demeure",
+        "media": "Science Post"
       },
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "27/12/17",
+        "title": "Les scientifiques travaillent pour créer de l’ADN humain synthétique",
+        "link": "https://iatranshumanisme.com/2017/12/28/scientifiques-travaillent-creer-de-ladn-humain-synthetique/",
+        "author": "Jaesa",
+        "media": "iatranshumanisme"
+      }
+    ]
+  },
+  {
+    "monthName": "January",
+    "sources": [
+      {
+        "date": "10/01/2018",
+        "title": "«Le transhumanisme, la fin de la solidarité?»",
+        "link": "http://www.lefigaro.fr/vox/societe/2018/01/10/31003-20180110ARTFIG00274-luc-ferry-le-transhumanisme-la-fin-de-la-solidarite.php",
+        "author": "Luc Ferry",
+        "media": "Figaro Vox"
+      },
+      {
+        "date": "23/01/18",
+        "title": "L'humanité vs l'IA, quels devenirs ?",
+        "link": "https://blogs.mediapart.fr/lavieille/blog/230118/lhumanite-iv-quels-devenirs",
+        "author": "/",
+        "media": "Mediapart"
+      },
+      {
+        "date": "09/01/18",
+        "title": "Invité : Frédéric Beigbeder en quête d'immortalité",
+        "link": "https://www.tf1.fr/tmc/quotidien-avec-yann-barthes/videos/frederic-beigbeder-quete-d-immortalite.html",
+        "author": "Frédéric Beigbeder",
+        "media": "Quotidien"
+      },
+      {
+        "date": "27/01/18",
+        "title": "Transhumanisme : comment l’individu augmenté se niche dans nos têtes",
+        "link": "https://www.lesnumeriques.com/vie-du-net/transhumanisme-comment-l-individu-augmente-se-niche-dans-nos-tetes-a3493.html",
+        "author": "Daphnée Leportois",
+        "media": "Les Numériques"
+      }
+    ]
+  },
+  {
+    "monthName": "February",
+    "sources": [
+      {
+        "date": "02/02/2018",
+        "title": "Transhumanisme, quête d'immortalité, humain amélioré : ce que les séries disent de nous",
+        "link": "http://biiinge.konbini.com/series/immortalite-humain-ameliore-series-sf-disent-de-nous/",
+        "author": "Luc Ferry",
+        "media": "Biiinge Konbini"
+      },
+      {
+        "date": "10/02/18",
+        "title": "Transhumanisme",
+        "link": "https://www.futura-sciences.com/tech/definitions/technologie-transhumanisme-16985/",
+        "author": "la rédaction de Futura",
+        "media": "Futura Tech"
+      },
+      {
+        "date": "02/01/18",
+        "title": "Podcast #7 : transhumanisme vs. religions",
+        "link": "https://usbeketrica.com/article/podcast-7-transhumanisme-vs-religions",
+        "author": "Usbek & Rica",
+        "media": "Usbek & Rica"
+      },
+      {
+        "date": "08/02/2018",
+        "title": "Manipulations génétiques, augmentation cérébrale... La Chine est ultratranshumaniste",
+        "link": "https://www.lexpress.fr/actualite/monde/asie/manipulations-genetiques-augmentation-cerebrale-la-chine-est-ultratranshumaniste_1982664.html",
+        "author": "Laurent Alexandre",
+        "media": "L'Express"
+      },
+      {
+        "date": "22/02/2018",
+        "title": "The Red Strings Club” : sous les cocktails cyberpunks, les interrogations transhumanistes",
+        "link": "https://www.lexpress.fr/actualite/monde/asie/manipulations-genetiques-augmentation-cerebrale-la-chine-est-ultratranshumaniste_1982664.html",
+        "author": "Julien Foussereau",
+        "media": "Télérama"
+      },
+      {
+        "date": "15/02/2018",
+        "title": "Un britannique se revendique premier « cyborg » du monde, mi-homme mi-robot",
+        "link": "http://www.genethique.org/fr/un-britannique-se-revendique-premier-cyborg-du-monde-mi-homme-mi-robot-69190.html#.WrzSL9NubOY",
+        "author": "Synthèse de presse bioéthique",
+        "media": "Genethique"
+      }
+    ]
+  },
+  {
+    "monthName": "March",
+    "sources": [
+      {
+        "date": "26/03/2018",
+        "title": "Dans la Silicon Valley, Nectome vend l’immortalité numérique",
+        "link": "http://www.lemonde.fr/pixels/article/2018/03/26/dans-la-silicon-valley-nectome-vend-l-immortalite-numerique_5276269_4408996.html",
+        "author": "Jérôme Marin",
+        "media": "Le Monde Pixels"
+      },
+      {
+        "date": "26/03/18",
+        "title": "Et si un ordinateur nous rendait immortel ?",
+        "link": "http://www.rtl.fr/actu/futur/netctome-et-si-un-ordinateur-nous-rendait-immortel-7792784911",
+        "author": "Arnaud Tousch et Benjamin Hue",
+        "media": "RTL Futur"
+      },
+      {
+        "date": "24/03/2018",
+        "title": "Cédric Villani - On n'est pas couché 24 mars 2018",
+        "link": "https://www.youtube.com/watch?v=SKLTBrBT4js",
+        "author": "Cédric Villani",
+        "media": "On n'est pas couché"
       }
     ]
   }
