@@ -30,8 +30,8 @@
       </div>
     </div>
 
-    <!--SECTION PROTAGONIST 1 -->
-    <div id="protagonist-1" class="section protagonist">
+    <!--SECTION PROTAGONIST BL -->
+    <div id="protagonist-bl" class="section protagonist">
       <div class="logo">
         <img src="@/assets/images/bioshock.png" alt="">
         <h2>Transhumanism</h2>
@@ -51,8 +51,8 @@
       </div>
     </div>
 
-    <!--SECTION PROTAGONIST 2 -->
-    <div id="protagonist-2" class="section protagonist">
+    <!--SECTION PROTAGONIST NA -->
+    <div id="protagonist-na" class="section protagonist">
       <div class="logo">
         <img src="@/assets/images/bioshock.png" alt="">
         <h2>Transhumanism</h2>
@@ -165,22 +165,22 @@ export default {
       }
     }
   }
-  #protagonist-1 {
+  #protagonist-na {
     span {
       text-align: left;
+        font-family: 'Roboto', sans-serif;
+    }
+    h3 {
+      color: #F9C2BF;
+    }
+  }
+  #protagonist-bl {
+    span {
+      text-align: right;
       font-family: 'Baskerville', sans-serif;
     }
     h3 {
       color: #64A0F9;
-    }
-  }
-  #protagonist-2 {
-    span {
-      text-align: right;
-      font-family: 'Roboto', sans-serif;
-    }
-    h3 {
-      color: #F9C2BF;
     }
   }
 }
