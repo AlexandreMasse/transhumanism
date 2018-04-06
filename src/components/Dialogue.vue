@@ -1,13 +1,10 @@
 <template>
   <div id="dialogue">
     <div class="gradient-top"></div>
-    <div class="dialogue-container">
 
-      <!--dans la navigation -->
-      <!--<div v-for="(month, index) in dialogue" :key="index">-->
-        <!--<p class="month-title">{{month.monthName}}</p>-->
-      <!--</div>-->
-      <!-- dialogue -->
+    <dialogue-side-progression :dialogue="dialogue"></dialogue-side-progression>
+
+    <div class="dialogue-container">
       <div class="narration-intro">
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
 
@@ -15,38 +12,42 @@
 
         <p>The article deals with //</p>
       </div>
-      <div v-for="(month, index) in dialogue" :key="index">
-        <div v-for="(word, index) in month.words" :key="index">
-          <div v-if="word.type === 'NA'" class="dialogue-block na-talking">
-            <div class="dialogue-name">N.A.</div>
-            <div class="dialogue-content">
-              <p v-if="word.article_included">
-                {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
-              </p>
-              <p v-else>{{ word.content }}</p>
-            </div>
-          </div>
+        <div v-for="(year, index) in dialogue" :key="index">
+          <div v-for="(month, index) in year.months" :key="index">
+              <div v-for="(word, index) in month.words" :key="index">
+              <div v-if="word.type === 'NA'" class="dialogue-block na-talking">
+                <div class="dialogue-name">N.A.</div>
+                <div class="dialogue-content">
+                  <p v-if="word.article_included">
+                    {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
+                  </p>
+                  <p v-else>{{ word.content }}</p>
+                </div>
+              </div>
 
-          <div v-if="word.type === 'BL'" class="dialogue-block bl-talking">
-            <div class="dialogue-name">B.L.</div>
-            <div class="dialogue-content">
-              <p v-if="word.article_included">
-                {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
-              </p>
-              <p v-else>{{ word.content }}</p>
+              <div v-if="word.type === 'BL'" class="dialogue-block bl-talking">
+                <div class="dialogue-name">B.L.</div>
+                <div class="dialogue-content">
+                  <p v-if="word.article_included">
+                    {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
+                  </p>
+                  <p v-else>{{ word.content }}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
 import dialogue from '@/data/dialogue.json'
+import DialogueSideProgression from '@/components/DialogueSideProgression'
 
 export default {
   name: 'Dialogue',
+  components: {DialogueSideProgression},
   data () {
     return {
       title: 'Dialogue',
@@ -79,7 +80,6 @@ export default {
   .narration-intro {
     text-align: center;
     margin-bottom: 10vh;
-    /*pour éviter que le début du dialogue soit dans le dégradé*/
     padding-top: 10vh;
   }
 
