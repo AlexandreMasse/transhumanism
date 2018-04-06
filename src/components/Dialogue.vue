@@ -1,79 +1,41 @@
 <template>
   <div id="dialogue">
     <div class="gradient-top"></div>
-
-    <!--je met en brut pour le moment histoire de pouvoir styliser, on mettra les données après -->
-
     <div class="dialogue-container">
-      <div class="narration">
+
+      <!--dans la navigation -->
+      <!--<div v-for="(month, index) in dialogue" :key="index">-->
+        <!--<p class="month-title">{{month.monthName}}</p>-->
+      <!--</div>-->
+      <!-- dialogue -->
+      <div class="narration-intro">
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
 
         <p>N.A., the pro-transhumanism one has a newspaper and show his friend an article he just read about transhumanism.</p>
 
         <p>The article deals with //</p>
       </div>
+      <div v-for="(month, index) in dialogue" :key="index">
+        <div v-for="(word, index) in month.words" :key="index">
+          <div v-if="word.type === 'NA'" class="dialogue-block na-talking">
+            <div class="dialogue-name">N.A.</div>
+            <div class="dialogue-content">
+              <p v-if="word.article_included">
+                {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
+              </p>
+              <p v-else>{{ word.content }}</p>
+            </div>
+          </div>
 
-      <div class="dialogue-block na-talking">
-        <div class="dialogue-name">N.A.</div>
-        <div class="dialogue-content">
-          <p>It’s crazy what scientists can do nowadays ! Can you believe it B.L. ?
-            <a href="" target="_blank">A microchip was implemented to 450 volunteers.</a>
-            They will be able to pay or take the subway only by using their hand !</p>
-        </div>
-      </div>
-
-      <div class="dialogue-block bl-talking">
-        <div class="dialogue-name">B.L.</div>
-        <div class="dialogue-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid aperiam, atque consectetur deserunt est facere, hic inventore ipsam iure minus nam nemo nihil, non omnis possimus quam quos sequi.</p>
-        </div>
-      </div>
-
-      <div class="dialogue-block na-talking">
-        <div class="dialogue-name">N.A.</div>
-        <div class="dialogue-content">
-          <p>It’s crazy what scientists can do nowadays ! Can you believe it B.L. ?
-            <a href="" target="_blank">A microchip was implemented to 450 volunteers.</a>
-            They will be able to pay or take the subway only by using their hand !</p>
-        </div>
-      </div>
-
-      <div class="dialogue-block bl-talking">
-        <div class="dialogue-name">B.L.</div>
-        <div class="dialogue-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid aperiam, atque consectetur deserunt est facere, hic inventore ipsam iure minus nam nemo nihil, non omnis possimus quam quos sequi.</p>
-        </div>
-      </div>
-
-      <div class="dialogue-block na-talking">
-        <div class="dialogue-name">N.A.</div>
-        <div class="dialogue-content">
-          <p>It’s crazy what scientists can do nowadays ! Can you believe it B.L. ?
-            <a href="" target="_blank">A microchip was implemented to 450 volunteers.</a>
-            They will be able to pay or take the subway only by using their hand !</p>
-        </div>
-      </div>
-
-      <div class="dialogue-block bl-talking">
-        <div class="dialogue-name">B.L.</div>
-        <div class="dialogue-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid aperiam, atque consectetur deserunt est facere, hic inventore ipsam iure minus nam nemo nihil, non omnis possimus quam quos sequi.</p>
-        </div>
-      </div>
-
-      <div class="dialogue-block na-talking">
-        <div class="dialogue-name">N.A.</div>
-        <div class="dialogue-content">
-          <p>It’s crazy what scientists can do nowadays ! Can you believe it B.L. ?
-            <a href="" target="_blank">A microchip was implemented to 450 volunteers.</a>
-            They will be able to pay or take the subway only by using their hand !</p>
-        </div>
-      </div>
-
-      <div class="dialogue-block bl-talking">
-        <div class="dialogue-name">B.L.</div>
-        <div class="dialogue-content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid aperiam, atque consectetur deserunt est facere, hic inventore ipsam iure minus nam nemo nihil, non omnis possimus quam quos sequi.</p>
+          <div v-if="word.type === 'BL'" class="dialogue-block bl-talking">
+            <div class="dialogue-name">B.L.</div>
+            <div class="dialogue-content">
+              <p v-if="word.article_included">
+                {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
+              </p>
+              <p v-else>{{ word.content }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -81,11 +43,14 @@
 </template>
 
 <script>
+import dialogue from '@/data/dialogue.json'
+
 export default {
   name: 'Dialogue',
   data () {
     return {
-      title: 'Dialogue'
+      title: 'Dialogue',
+      dialogue
     }
   }
 }
@@ -111,13 +76,11 @@ export default {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0b0b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
   }
 
-  .narration {
+  .narration-intro {
     text-align: center;
     margin-bottom: 10vh;
     /*pour éviter que le début du dialogue soit dans le dégradé*/
-    &:first-of-type {
-      padding-top: 10vh;
-    }
+    padding-top: 10vh;
   }
 
   .dialogue-block {
