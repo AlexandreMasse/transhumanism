@@ -1,76 +1,82 @@
 <template>
   <div id="home">
-    <!--SECTION INTRO -->
-    <div class="section intro">
-      <img src="@/assets/images/bioshock.png" alt="">
-      <h1>Transhumanism</h1>
-      <p>the belief or theory that the human race can evolve beyond its current physical and mental limitations, especially by means of science and technology.</p>
-      <home-side-progression></home-side-progression>
 
-      <div id="discover-protagonists">
-        <img src="@/assets/images/protagonist1.png" alt="">
-        <div @click="scrollDown()">
-          <p>Discover protagonists</p>
-          <div class="line"></div>
+    <home-side-progression :step="step" @changeStep="changeStep"></home-side-progression>
+
+    <transition name="section" mode="out-in">
+
+      <!--SECTION INTRO -->
+      <div v-if="step === 1" class="section intro" key="1">
+        <img src="@/assets/images/bioshock.png" alt="">
+        <h1>Transhumanism</h1>
+        <p>the belief or theory that the human race can evolve beyond its current physical and mental limitations, especially by means of science and technology.</p>
+
+        <div id="discover-protagonists">
+          <img src="@/assets/images/protagonist1.png" alt="">
+          <div @click="changeStep(2)">
+            <p>Discover protagonists</p>
+            <div class="line"></div>
+          </div>
+          <img src="@/assets/images/protagonist2.png" alt="">
         </div>
-        <img src="@/assets/images/protagonist2.png" alt="">
       </div>
-    </div>
 
-    <!--SECTION DISCOVER PROTAGONISTS -->
-    <div id="protagonists" class="section protagonist">
-      <div class="logo">
-        <img src="@/assets/images/bioshock.png" alt="">
-        <h2>Transhumanism</h2>
+      <!--SECTION DISCOVER PROTAGONISTS -->
+      <div v-if="step === 2" id="protagonists" class="section protagonist" key="2">
+        <div class="logo">
+          <img src="@/assets/images/bioshock.png" alt="">
+          <h2>Transhumanism</h2>
+        </div>
+        <div class="main">
+          <img src="@/assets/images/protagonist3.png" alt="">
+          <span>N.A. and B.L. met a few years ago because of the friendship of their wifes. <br>
+          On April 10th 2018, while having a drink, they come up talking about transhumanism.</span>
+        </div>
       </div>
-      <div class="main">
-        <img src="@/assets/images/protagonist3.png" alt="">
-        <span>N.A. and B.L. met a few years ago because of the friendship of their wifes. <br>
-        On April 10th 2018, while having a drink, they come up talking about transhumanism.</span>
-      </div>
-    </div>
 
-    <!--SECTION PROTAGONIST BL -->
-    <div id="protagonist-bl" class="section protagonist">
-      <div class="logo">
-        <img src="@/assets/images/bioshock.png" alt="">
-        <h2>Transhumanism</h2>
+      <!--SECTION PROTAGONIST BL -->
+      <div v-if="step === 3" id="protagonist-bl" class="section protagonist" key="3">
+        <div class="logo">
+          <img src="@/assets/images/bioshock.png" alt="">
+          <h2>Transhumanism</h2>
+        </div>
+        <div class="main">
+          <span>
+            <h3>B.L.</h3>
+            <p>Scientist biologist<br>
+              Against transhumanism<br>
+              34 years old<br>
+              Married, 2 children<br>
+              Interested about technological progress and innovation<br>
+              Is worried about the future of her children<br>
+              Wary about new technologies and their consequences</p>
+            </span>
+          <img src="@/assets/images/protagonist1.png" alt="">
+        </div>
       </div>
-      <div class="main">
-        <span>
-          <h3>B.L.</h3>
-          <p>Scientist biologist<br>
-            Against transhumanism<br>
-            34 years old<br>
-            Married, 2 children<br>
-            Interested about technological progress and innovation<br>
-            Is worried about the future of her children<br>
-            Wary about new technologies and their consequences</p>
-          </span>
-        <img src="@/assets/images/protagonist1.png" alt="">
-      </div>
-    </div>
 
-    <!--SECTION PROTAGONIST NA -->
-    <div id="protagonist-na" class="section protagonist">
-      <div class="logo">
-        <img src="@/assets/images/bioshock.png" alt="">
-        <h2>Transhumanism</h2>
+      <!--SECTION PROTAGONIST NA -->
+      <div v-if="step === 4" id="protagonist-na" class="section protagonist" key="4">
+        <div class="logo">
+          <img src="@/assets/images/bioshock.png" alt="">
+          <h2>Transhumanism</h2>
+        </div>
+        <div class="main">
+          <img src="@/assets/images/protagonist2.png" alt="">
+          <span>
+            <h3>N.A.</h3>
+            <p>Writer <br>
+              For transhumanism<br>
+              45 years old<br>
+              Young father<br>
+              Interested about technological progress and innovation<br>
+              Afraid of death<br>
+              Fascinated about new technologies that allow us to live longer</p>
+            </span>
+        </div>
       </div>
-      <div class="main">
-        <img src="@/assets/images/protagonist2.png" alt="">
-        <span>
-          <h3>N.A.</h3>
-          <p>Writer <br>
-            For transhumanism<br>
-            45 years old<br>
-            Young father<br>
-            Interested about technological progress and innovation<br>
-            Afraid of death<br>
-            Fascinated about new technologies that allow us to live longer</p>
-          </span>
-      </div>
-    </div>
+
+    </transition>
   </div>
 </template>
 
@@ -82,18 +88,53 @@ export default {
   components: {HomeSideProgression},
   data () {
     return {
-      title: 'Home'
+      step: 1
     }
   },
   methods: {
-    scrollDown: function () {
-      document.querySelector('#protagonists').scrollIntoView()
+    throttle (delay, fn) {
+      let lastCall = 0
+      return function (...args) {
+        const now = (new Date()).getTime()
+        if (now - lastCall < delay) {
+          return
+        }
+        lastCall = now
+        return fn(...args)
+      }
+    },
+    changeStep (nextStep) {
+      if (nextStep >= 1 && nextStep <= 4) {
+        this.step = nextStep
+      }
+    },
+    onMouseWheel (e) {
+      if (e.movementY < 0) {
+        this.changeStep(this.step + 1)
+      } else {
+        this.changeStep(this.step - 1)
+      }
     }
+  },
+  mounted () {
+    window.addEventListener('mousewheel', this.throttle(400, this.onMouseWheel))
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+.section-enter-active {
+  transition: all 0.5s ease-in;
+}
+
+.section-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.section-enter, .section-leave-to {
+  opacity: 0;
+}
 
 #home {
   .section {

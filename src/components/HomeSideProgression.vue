@@ -1,7 +1,7 @@
 <template>
   <div id="home-side-progression">
-    <button @click="moins">Moins</button>
-    <button @click="plus">Plus</button>
+   <!--  <button @click="moins">Moins</button>
+    <button @click="plus">Plus</button> -->
     <div class="step-container">
       <div class="background-line"></div>
       <div class="step-line"></div>
@@ -16,10 +16,10 @@
 <script>
 export default {
   name: 'HomeSideProgression',
-  /* props: ['step'], */
+  props: ['step'],
   data () {
     return {
-      currentStep: 1,
+      currentStep: this.step,
       nbStep: 4
     }
   },
@@ -28,6 +28,8 @@ export default {
       if (nextStep >= 1 && nextStep <= this.nbStep) {
         this.currentStep = nextStep
         this.stepLine.style.height = (nextStep - 1) * this.stepContainer.offsetHeight / (this.nbStep - 1) + 'px'
+        // Emit event for parent
+        this.$emit('changeStep', nextStep)
       }
     },
     plus () {
@@ -41,6 +43,11 @@ export default {
     this.stepLine = document.querySelector('.step-line')
     this.stepContainer = document.querySelector('.step-container')
     this.changeStep(this.currentStep)
+  },
+  watch: {
+    'step' (to, from) {
+      this.changeStep(to)
+    }
   }
 }
 </script>
@@ -53,7 +60,7 @@ export default {
 
   position: fixed;
   top: 50vh;
-  right: 20px;
+  right: 50px;
   transform: translateY(-50%);
 
   button {
