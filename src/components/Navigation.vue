@@ -1,8 +1,8 @@
 <template>
   <nav id="navigation">
     <router-link :to="{ name: 'sources'}" class="route-sources">Sources</router-link>
-    <router-link :to="{ name: 'subjects'}" class="route-subjects">Subjects</router-link>
     <router-link :to="{ name: 'about'}" class="route-about">About</router-link>
+    <router-link :to="{ name: 'dialogue'}" class="route-dialogue">Dialogue</router-link>
     <router-link :to="{ name: 'home'}" class="route-home">Home</router-link>
     <div class="route-marker-container">
       <div class="route-marker"></div>

@@ -1,0 +1,62 @@
+[
+  {
+    "yearName": "2017",
+    "months": [
+      {
+        "monthName": "October",
+        "words": [
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "It’s crazy what scientists can do nowadays ! Can you believe it B.L. ?",
+            "content_link": "A microchip was implemented to 450 volunteers.",
+            "link": "http://www.latribune.fr/opinions/blogs/homo-numericus/la-memoire-dans-la-peau-753416.html",
+            "content_after": "They will be able to pay or take the subway only by using their hand !"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Great..."
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "They’re saying that we will soon be able to",
+            "content_link": "control our connected house with our mind",
+            "link": "https://iatranshumanisme.com/2017/10/27/lintelligence-artificielle-nous-permettra-de-controler-nos-maisons-par-la-pensee/",
+            "content_after": "! It could even reduce my bills ! he says, laughing."
+          }
+        ]
+      },
+      {
+        "monthName": "November",
+        "words": []
+      },
+      {
+        "monthName": "December",
+        "words": []
+      }
+    ]
+  },
+  {
+    "yearName": "2018",
+    "months": [
+      {
+        "monthName": "January",
+        "words": []
+      },
+      {
+        "monthName": "February",
+        "words": []
+      },
+      {
+        "monthName": "March",
+        "words": []
+      },
+      {
+        "monthName": "April",
+        "words": []
+      }
+    ]
+  }
+]

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import About from '@/components/About'
-import Subjects from '@/components/Subjects'
+import Dialogue from '@/components/Dialogue'
 import Sources from '@/components/Sources'
 
 Vue.use(Router)
@@ -22,9 +22,9 @@ export default new Router({
       component: About
     },
     {
-      path: '/subjects',
-      name: 'subjects',
-      component: Subjects
+      path: '/dialogue',
+      name: 'dialogue',
+      component: Dialogue
     },
     {
       path: '/sources',
