@@ -3,6 +3,13 @@
 
     <home-side-progression :step="step" @changeStep="changeStep"></home-side-progression>
 
+    <transition name="small-logo" mode="out-in">
+      <div v-if="step > 1" class="logo-small" key="logo">
+        <img src="../../assets/images/bioshock.png" alt="">
+        <h2>Transhumanism</h2>
+      </div>
+    </transition>
+
     <transition name="section" mode="out-in">
 
       <!--SECTION INTRO -->
@@ -23,10 +30,6 @@
 
       <!--SECTION PROTAGONIST BL -->
       <div v-if="step === 2" id="protagonist-bl" class="section protagonist" key="2">
-        <div class="logo">
-          <img src="../../assets/images/bioshock.png" alt="">
-          <h2>Transhumanism</h2>
-        </div>
         <div class="main">
           <div class="text">
             <h3>B.L.</h3>
@@ -44,10 +47,6 @@
 
       <!--SECTION PROTAGONIST NA -->
       <div v-if="step === 3" id="protagonist-na" class="section protagonist" key="3">
-        <div class="logo">
-          <img src="../../assets/images/bioshock.png" alt="">
-          <h2>Transhumanism</h2>
-        </div>
         <div class="main">
           <img src="../../assets/images/protagonist2.png" alt="">
           <div class="text">
@@ -65,10 +64,6 @@
 
       <!--SECTION DISCOVER PROTAGONISTS -->
       <div v-if="step === 4" id="protagonists" class="section protagonist" key="4">
-        <div class="logo">
-          <img src="../../assets/images/bioshock.png" alt="">
-          <h2>Transhumanism</h2>
-        </div>
         <div class="main">
           <img src="../../assets/images/protagonist3.png" alt="">
           <div class="text">
@@ -131,11 +126,19 @@ export default {
   transition: all 0.5s ease-in;
 }
 
-.section-leave-active {
+.small-logo-enter-active {
+  transition: all 0.5s 0.3s ease-in;
+}
+
+.section-leave-active,
+.small-logo-leave-active {
   transition: all 0.3s ease-out;
 }
 
-.section-enter, .section-leave-to {
+.section-enter,
+.section-leave-to,
+.small-logo-enter,
+.small-logo-leave-to {
   opacity: 0;
 }
 
@@ -143,6 +146,21 @@ export default {
   .section {
     height: 100vh;
   }
+
+  .logo-small {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2vh;
+    img {
+      width: 100px;
+    }
+    h2 {
+      font-size:14px;
+      font-weight:400;
+    }
+  }
+
   .intro {
     padding-top: 70px;
     position: relative;
@@ -192,16 +210,6 @@ export default {
     }
   }
   .protagonist {
-    .logo {
-      padding-top: 30px;
-      img {
-        width: 100px;
-      }
-      h2 {
-        font-size:14px;
-        font-weight:400;
-      }
-    }
     .main {
       position: absolute;
       top:50vh;
