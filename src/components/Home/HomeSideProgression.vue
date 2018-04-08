@@ -57,7 +57,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   position: fixed;
   top: 50vh;
   right: 50px;
@@ -91,7 +90,7 @@ export default {
       left: 50%;
       transform: translateX(-50%);
       width: 1px;
-      height: 100%;
+      height: 99.5%;
       background-color: #757575;
     }
 

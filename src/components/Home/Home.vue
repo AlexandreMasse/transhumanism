@@ -28,7 +28,7 @@
           <h2>Transhumanism</h2>
         </div>
         <div class="main">
-          <span>
+          <div class="text">
             <h3>B.L.</h3>
             <p>Scientist biologist<br>
               Against transhumanism<br>
@@ -37,7 +37,7 @@
               Interested about technological progress and innovation<br>
               Is worried about the future of her children<br>
               Wary about new technologies and their consequences</p>
-            </span>
+            </div>
           <img src="../../assets/images/protagonist1.png" alt="">
         </div>
       </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="main">
           <img src="../../assets/images/protagonist2.png" alt="">
-          <span>
+          <div class="text">
             <h3>N.A.</h3>
             <p>Writer <br>
               For transhumanism<br>
@@ -59,7 +59,7 @@
               Interested about technological progress and innovation<br>
               Afraid of death<br>
               Fascinated about new technologies that allow us to live longer</p>
-            </span>
+            </div>
         </div>
       </div>
 
@@ -71,9 +71,12 @@
         </div>
         <div class="main">
           <img src="../../assets/images/protagonist3.png" alt="">
-          <span>N.A. and B.L. met a few years ago because of the friendship of their wifes. <br>
-          On April 10th 2018, while having a drink, they come up talking about transhumanism.</span>
+          <div class="text">
+            <p>N.A. and B.L. met a few years ago because of the friendship of their wifes.</p>
+            <p>On April 10th 2018, while having a drink, they come up talking about transhumanism.</p>
+          </div>
         </div>
+        <router-link :to="{ name: 'dialogue'}">Discover dialogue</router-link>
       </div>
 
     </transition>
@@ -190,38 +193,89 @@ export default {
   }
   .protagonist {
     .logo {
+      padding-top: 30px;
       img {
         width: 100px;
       }
+      h2 {
+        font-size:14px;
+        font-weight:400;
+      }
     }
     .main {
-      margin-top: 10vh;
-      img, span {
-        display: inline-block;
-        vertical-align: middle;
-        max-width: 45%;
+      position: absolute;
+      top:50vh;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      img, .text {
+        width: 45%;
       }
-      span {
+      img {
+        animation: img-enter 1.1s 0.3s ease forwards;
+        opacity: 0;
+        @keyframes img-enter {
+          0% {
+            transform: translateY(20px);
+          }
+          100% {
+            transform: translateY(0);
+            opacity:1;
+          }
+        }
+      }
+      .text {
         line-height: 2em;
+        animation: text-enter 1.1s 0.3s ease forwards;
+        opacity: 0;
+
+        @keyframes text-enter {
+          0% {
+            transform: translateY(-20px);
+          }
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  #protagonist-bl {
+    .text {
+      text-align: left;
+      font-family: 'Baskerville', sans-serif;
+
+      h3 {
+        color: #64A0F9;
+        font-size: 42px;
+        font-weight: 400;
       }
     }
   }
   #protagonist-na {
-    span {
-      text-align: left;
-        font-family: 'Roboto', sans-serif;
-    }
-    h3 {
-      color: #F9C2BF;
+    .text {
+      text-align: right;
+      font-family: 'Roboto', sans-serif;
+      h3 {
+        color: #F9C2BF;
+        font-size: 42px;
+        font-weight: 400;
+      }
     }
   }
-  #protagonist-bl {
-    span {
-      text-align: right;
-      font-family: 'Baskerville', sans-serif;
+  #protagonists {
+    .text {
+      text-align: left;
     }
-    h3 {
-      color: #64A0F9;
+
+    a {
+      position: absolute;
+      bottom: 10vh;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 }
