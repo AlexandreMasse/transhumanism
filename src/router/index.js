@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import About from '@/components/About'
-import Dialogue from '@/components/Dialogue'
-import Sources from '@/components/Sources'
+import Home from '../components/Home/Home.vue'
+import About from '../components/About/About.vue'
+import Dialogue from '../components/Dialogue/Dialogue.vue'
+import Sources from '../components/Sources/Sources.vue'
 
 Vue.use(Router)
 

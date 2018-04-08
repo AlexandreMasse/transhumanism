@@ -7,14 +7,14 @@
       </keep-alive>
     </transition>
     <a href="https://www.gobelins.fr/" class="gobelins-logo">
-      <img src="@/assets/images/gobelins_logo.png" alt="">
+      <img src="./assets/images/gobelins_logo.png" alt="">
     </a>
 
   </div>
 </template>
 
 <script>
-import Navigation from '@/components/Navigation.vue'
+import Navigation from './components/Navigation.vue'
 
 export default {
   name: 'App',

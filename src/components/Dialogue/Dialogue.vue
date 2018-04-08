@@ -42,8 +42,8 @@
 </template>
 
 <script>
-import dialogue from '@/data/dialogue.json'
-import DialogueSideProgression from '@/components/DialogueSideProgression'
+import dialogue from '../../data/dialogue.json'
+import DialogueSideProgression from './DialogueSideProgression'
 
 export default {
   name: 'Dialogue',

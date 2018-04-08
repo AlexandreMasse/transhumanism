@@ -7,37 +7,24 @@
 
       <!--SECTION INTRO -->
       <div v-if="step === 1" class="section intro" key="1">
-        <img src="@/assets/images/bioshock.png" alt="">
+        <img src="../../assets/images/bioshock.png" alt="">
         <h1>Transhumanism</h1>
         <p>the belief or theory that the human race can evolve beyond its current physical and mental limitations, especially by means of science and technology.</p>
 
         <div id="discover-protagonists">
-          <img src="@/assets/images/protagonist1.png" alt="">
+          <img src="../../assets/images/protagonist1.png" alt="">
           <div @click="changeStep(2)">
             <p>Discover protagonists</p>
             <div class="line"></div>
           </div>
-          <img src="@/assets/images/protagonist2.png" alt="">
-        </div>
-      </div>
-
-      <!--SECTION DISCOVER PROTAGONISTS -->
-      <div v-if="step === 2" id="protagonists" class="section protagonist" key="2">
-        <div class="logo">
-          <img src="@/assets/images/bioshock.png" alt="">
-          <h2>Transhumanism</h2>
-        </div>
-        <div class="main">
-          <img src="@/assets/images/protagonist3.png" alt="">
-          <span>N.A. and B.L. met a few years ago because of the friendship of their wifes. <br>
-          On April 10th 2018, while having a drink, they come up talking about transhumanism.</span>
+          <img src="../../assets/images/protagonist2.png" alt="">
         </div>
       </div>
 
       <!--SECTION PROTAGONIST BL -->
-      <div v-if="step === 3" id="protagonist-bl" class="section protagonist" key="3">
+      <div v-if="step === 2" id="protagonist-bl" class="section protagonist" key="2">
         <div class="logo">
-          <img src="@/assets/images/bioshock.png" alt="">
+          <img src="../../assets/images/bioshock.png" alt="">
           <h2>Transhumanism</h2>
         </div>
         <div class="main">
@@ -51,18 +38,18 @@
               Is worried about the future of her children<br>
               Wary about new technologies and their consequences</p>
             </span>
-          <img src="@/assets/images/protagonist1.png" alt="">
+          <img src="../../assets/images/protagonist1.png" alt="">
         </div>
       </div>
 
       <!--SECTION PROTAGONIST NA -->
-      <div v-if="step === 4" id="protagonist-na" class="section protagonist" key="4">
+      <div v-if="step === 3" id="protagonist-na" class="section protagonist" key="3">
         <div class="logo">
-          <img src="@/assets/images/bioshock.png" alt="">
+          <img src="../../assets/images/bioshock.png" alt="">
           <h2>Transhumanism</h2>
         </div>
         <div class="main">
-          <img src="@/assets/images/protagonist2.png" alt="">
+          <img src="../../assets/images/protagonist2.png" alt="">
           <span>
             <h3>N.A.</h3>
             <p>Writer <br>
@@ -76,12 +63,25 @@
         </div>
       </div>
 
+      <!--SECTION DISCOVER PROTAGONISTS -->
+      <div v-if="step === 4" id="protagonists" class="section protagonist" key="4">
+        <div class="logo">
+          <img src="../../assets/images/bioshock.png" alt="">
+          <h2>Transhumanism</h2>
+        </div>
+        <div class="main">
+          <img src="../../assets/images/protagonist3.png" alt="">
+          <span>N.A. and B.L. met a few years ago because of the friendship of their wifes. <br>
+          On April 10th 2018, while having a drink, they come up talking about transhumanism.</span>
+        </div>
+      </div>
+
     </transition>
   </div>
 </template>
 
 <script>
-import HomeSideProgression from '@/components/HomeSideProgression'
+import HomeSideProgression from './HomeSideProgression'
 
 export default {
   name: 'Home',

@@ -38,7 +38,6 @@ export default {
     this.marker = document.querySelector('.route-marker')
     this.changeRouteMarker(this.$route)
   }
-
 }
 </script>
 
