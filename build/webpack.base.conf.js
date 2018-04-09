@@ -36,6 +36,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      ScrollToPlugin: './node_modules/gsap/src/uncompressed/plugins/ScrollToPlugin'
     }
   },
   module: {

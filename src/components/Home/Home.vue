@@ -218,6 +218,7 @@ export default {
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
+      width: 100%;
       img, .text {
         width: 45%;
       }

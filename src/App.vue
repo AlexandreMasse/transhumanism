@@ -49,7 +49,7 @@ export default {
   > div {
     position: relative;
     z-index: 2;
-    max-width: 1000px;
+    max-width: 1400px;
     width: 80%;
     margin: 0 auto;
     height: 100%;

@@ -30,11 +30,43 @@
       },
       {
         "monthName": "November",
-        "words": []
+        "words": [
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Amazing yes, if you can own it"
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "And why couldn’t we?"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Because it has a cost. These devices will be affordable to an few minority that can afford it. A huge gap will be created, expanding even more wealth inequality."
+          }
+        ]
       },
       {
         "monthName": "December",
-        "words": []
+        "words": [
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Maintenant que tu en parles, j’ai récemment lu que même si nous n’en sommes qu’à l’air du deep learning et de l’intelligence artificielle qui s’éduque, bientôt, nous serons face à la conscience artificielle."
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Rien d’étonnant, mais où tu veux en venir ?"
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Et bien, nous allons devoir “prouver” notre utilité face à un monde saturé d’intelligence artificielle. Pour cela le système éducatif devra être complètement réformé. L’utilisation des neuroscience et de la technologie dans l’apprentissage sera indispensable."
+          }
+        ]
       }
     ]
   },
@@ -43,11 +75,31 @@
     "months": [
       {
         "monthName": "January",
-        "words": []
+        "words": [
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Une carte unique suffirait. Aujourd’hui avec leur transhumanisme, ils ne sont plus en train d’améliorer ce qui nous entoure mais ce qui nous anime. Et pourquoi ? Pour nous rendre plus heureux ?"
+          },{
+            "type": "NA",
+            "article_included": false,
+            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+          }
+        ]
       },
       {
         "monthName": "February",
-        "words": []
+        "words": [
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+          },{
+            "type": "NA",
+            "article_included": false,
+            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+          }
+        ]
       },
       {
         "monthName": "March",
