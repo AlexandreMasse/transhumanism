@@ -112,10 +112,26 @@ export default {
       } else {
         this.changeStep(this.step - 1)
       }
+    },
+    onPageEnter () {
+      // window.addEventListener('mousewheel', this.throttle(400, this.onMouseWheel))
+    },
+    onPageLeave () {
+      // window.removeEventListener('mousewheel', this.onMouseWheel)
     }
   },
   mounted () {
     window.addEventListener('mousewheel', this.throttle(400, this.onMouseWheel))
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'home') {
+        this.onPageEnter()
+      } else {
+        console.log('leave')
+        this.onPageLeave()
+      }
+    }
   }
 }
 </script>

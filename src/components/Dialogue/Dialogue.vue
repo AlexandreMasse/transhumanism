@@ -11,11 +11,11 @@
 
         <p>The article deals with //</p>
       </div>
-        <div v-for="(year, index) in dialogue" :key="index">
-          <div v-for="(month, index) in year.months" :key="index">
+        <div v-for="(year, index) in dialogue" :key="index" class="year" :data-month="year.yearName">
+          <div v-for="(month, index) in year.months" :key="index" class="month" :data-month="month.monthName">
               <div v-for="(word, index) in month.words" :key="index">
 
-              <div v-if="word.type === 'NA'" class="dialogue-block na-talking" :data-month="month.monthName">
+              <div v-if="word.type === 'NA'" class="dialogue-block na-talking" >
                 <div class="dialogue-name">N.A.</div>
                 <div class="dialogue-content">
                   <p v-if="word.article_included">
@@ -44,60 +44,88 @@
 <script>
 import dialogue from '../../data/dialogue.json'
 import DialogueSideProgression from './DialogueSideProgression'
-import { TweenMax, Power1 } from 'gsap'
-// import ScrollToPlugin from 'gsap/ScrollToPlugin'
+import { TweenMax, Power2, Power3 } from 'gsap'
 require('gsap/ScrollToPlugin')
 
 export default {
   components: {DialogueSideProgression},
   data () {
     return {
-      title: 'Dialogue',
-      dialogue
+      dialogue,
+      currentScroll: 0
     }
   },
   methods: {
-  },
-  mounted () {
-    const els = document.querySelectorAll('.dialogue-block')
-    var scrollTime = 1 // Scroll time
-    var scrollDistance = 70 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
-
-    const raf = () => {
-      els.forEach(el => {
-        var offsetY = el.offsetTop - window.scrollY
-        if (offsetY < window.scrollY) {
-          var offsetYPourcent = offsetY / window.innerHeight
-          var scale = 0.5 + (offsetYPourcent * 0.7)
-          el.style.transform = 'scale(' + scale + ')'
+    throttle (delay, fn) {
+      let lastCall = 0
+      return function (...args) {
+        const now = (new Date()).getTime()
+        if (now - lastCall < delay) {
+          return
         }
-      })
-      requestAnimationFrame(raf)
-    }
-
-    raf()
-
-    window.addEventListener('mousewheel', (e) => {
-
+        lastCall = now
+        return fn(...args)
+      }
+    },
+    updateDialogueScale (els) {
+      function update () {
+        els.forEach(el => {
+          var offsetY = el.offsetTop - window.scrollY
+          var offsetYPourcent = offsetY / window.innerHeight
+          if (offsetYPourcent < 1.05) {
+            var scale = 0.5 + (offsetYPourcent * 0.7)
+            el.style.transform = 'scale(' + scale + ')'
+            el.style.color = 'white'
+          } else {
+            el.style.color = 'red'
+          }
+        })
+        requestAnimationFrame(update)
+      }
+      update()
+    },
+    onMouseWheel (e) {
       e.preventDefault()
-
+      var scrollTime = 1.2 // Scroll time
+      var scrollDistance = 70 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
       var delta = e.wheelDelta / 120 || -e.detail / 3
       var scrollTop = window.scrollY
       var finalScroll = scrollTop - parseInt(delta * scrollDistance)
+      this.currentScroll = finalScroll
+
       TweenMax.to(window, scrollTime, {
         scrollTo: { y: finalScroll, autoKill: true },
-        ease: Power1.easeOut,
+        ease: Power3.easeOut,
         autoKill: true,
         overwrite: 5
       })
+    },
+    onPageEnter () {
+      window.addEventListener('mousewheel', this.onMouseWheel)
 
-      // var offssetY = el.offsetTop - window.scrollY
-      // var offsetYPourcent = Math.round(offssetY / window.innerHeight * 100)
-      // console.log(offsetYPourcent)
-      // console.log('scrollHeight : ' + el.scrollHeight)
-      // console.log('scrollTop : ' + el.scrollTop)
-      // console.log('clientHeight : ' + el.clientHeight)
-    })
+      TweenMax.to(window, 2.5, {
+        scrollTo: { y: this.currentScroll },
+        ease: Power2.easeInOut,
+        delay: 0.7
+      })
+    },
+    onPageLeave () {
+      window.removeEventListener('mousewheel', this.onMouseWheel)
+    }
+  },
+  mounted () {
+    const els = document.querySelectorAll('.dialogue-block')
+    this.updateDialogueScale(els)
+    window.addEventListener('mousewheel', this.onMouseWheel)
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'dialogue') {
+        this.onPageEnter()
+      } else {
+        this.onPageLeave()
+      }
+    }
   }
 }
 </script>
