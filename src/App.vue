@@ -2,31 +2,24 @@
   <div id="app">
     <navigation></navigation>
     <transition name="fade" mode="out-in">
-      <router-view/>
+      <keep-alive>
+         <router-view/>
+      </keep-alive>
     </transition>
     <a href="https://www.gobelins.fr/" class="gobelins-logo">
-      <img src="@/assets/images/gobelins_logo.png" alt="">
+      <img src="./assets/images/gobelins_logo.png" alt="">
     </a>
 
   </div>
 </template>
 
 <script>
-import Navigation from '@/components/Navigation.vue'
+import Navigation from './components/Navigation.vue'
 
 export default {
   name: 'App',
   components: {Navigation},
   methods: {
-    // checkNavigationRoute (routeName) {
-    //   // return this.$route.path === this.$router.match(routeName).fullPath
-    // }
-  },
-  mounted () {
-    // console.log(this.checkNavigationRoute('about'))
-  },
-  updated () {
-    // console.log(this.checkNavigationRoute('about'))
   }
 }
 </script>

@@ -14,12 +14,12 @@
         </div>
       </div>
     </div>
-    <img src="@/assets/images/bioshock.png" alt="" class="bioshock">
+    <img src="../../assets/images/bioshock.png" alt="" class="bioshock">
   </div>
 </template>
 
 <script>
-import sourcesByMonth from '@/data/sources.json'
+import sourcesByMonth from '../../data/sources.json'
 export default {
   name: 'Sources',
   data () {

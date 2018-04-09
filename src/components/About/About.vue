@@ -7,7 +7,7 @@
 
     <div class="credit-container">
       <div class="school">
-        <img src="@/assets/images/gobelins_logo.png" alt="">
+        <img src="../../assets/images/gobelins_logo.png" alt="">
         <p>Gobelins l’école de l’image</p>
         <p>BDDI 2018</p>
       </div>
@@ -15,7 +15,7 @@
         <p>Develop by <a href="#">Alexandre Masse</a> & <a href="#">Audren Mauplot</a> - Design by <a href="#">Justine Lenouvel</a> & <a href="#">Cassandre Leguay</a></p>
       </div>
     </div>
-    <img src="@/assets/images/bioshock.png" alt="" class="bioshock">
+    <img src="../../assets/images/bioshock.png" alt="" class="bioshock">
   </div>
 </template>
 
