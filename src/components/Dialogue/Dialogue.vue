@@ -1,9 +1,8 @@
 <template>
   <div id="dialogue">
-    <div class="test">{{currentYear}} - {{currentMonth}}</div>
     <div class="gradient-top"></div>
 
-    <dialogue-side-progression :dialogue="dialogue" v-bind:currentYear="currentYear" v-bind:currentMonth="currentMonth"/>
+    <dialogue-side-progression :dialogue="dialogue" :year="currentYear" :month="currentMonth"/>
     <div class="dialogue-container">
       <div class="narration-intro">
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
@@ -106,7 +105,7 @@ export default {
     },
     smoothScroll (e) {
       e.preventDefault()
-      let scrollTime = 1.2 // Scroll time
+      let scrollTime = 1.5 // Scroll time
       let scrollDistance = 200 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
       let delta = e.wheelDelta / 120 || -e.detail / 3
       let scrollTop = window.scrollY
@@ -159,15 +158,6 @@ export default {
 
 <style scoped lang="scss">
 #dialogue {
-
-  .test {
-    z-index: 1000;
-    position: fixed;
-    right: 40px;
-    top: 40px;
-    color: red;
-    font-size: 30px;
-  }
 
   padding-top: 30vh;
   position: relative;
