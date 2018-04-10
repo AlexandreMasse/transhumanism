@@ -1,9 +1,9 @@
 <template>
   <div id="dialogue">
+    <div class="test">{{currentYear}} - {{currentMonth}}</div>
     <div class="gradient-top"></div>
 
-    <dialogue-side-progression :dialogue="dialogue"></dialogue-side-progression>
-
+    <dialogue-side-progression :dialogue="dialogue"/>
     <div class="dialogue-container">
       <div class="narration-intro">
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
@@ -12,21 +12,22 @@
 
         <p>The article deals with //</p>
       </div>
-        <div v-for="(year, index) in dialogue" :key="index">
-          <div v-for="(month, index) in year.months" :key="index">
+        <div v-for="(year, index) in dialogue" :key="index" class="year" >
+          <div v-for="(month, index) in year.months" :key="index" class="month">
               <div v-for="(word, index) in month.words" :key="index">
-              <div v-if="word.type === 'NA'" class="dialogue-block na-talking">
-                <div class="dialogue-name">N.A.</div>
+
+              <div v-if="word.type === 'NA'" class="dialogue-block na-talking" :data-month="month.monthName" :data-year="year.yearName">
+                <div class="dialogue-name">{{year.yearName}} - {{month.monthName}} N.A.</div>
                 <div class="dialogue-content">
                   <p v-if="word.article_included">
-                    {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
+                   {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
                   </p>
                   <p v-else>{{ word.content }}</p>
                 </div>
               </div>
 
-              <div v-if="word.type === 'BL'" class="dialogue-block bl-talking">
-                <div class="dialogue-name">B.L.</div>
+              <div v-if="word.type === 'BL'" class="dialogue-block bl-talking" :data-month="month.monthName" :data-year="year.yearName">
+                <div class="dialogue-name">{{year.yearName}} - {{month.monthName}} B.L.</div>
                 <div class="dialogue-content">
                   <p v-if="word.article_included">
                     {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
@@ -44,14 +45,113 @@
 <script>
 import dialogue from '../../data/dialogue.json'
 import DialogueSideProgression from './DialogueSideProgression'
+import { TweenMax, Power2, Power3 } from 'gsap'
+require('gsap/ScrollToPlugin')
 
 export default {
-  name: 'Dialogue',
   components: {DialogueSideProgression},
   data () {
     return {
-      title: 'Dialogue',
-      dialogue
+      dialogue,
+      currentScroll: 0,
+      currentYear: '2017',
+      currentMonth: 'October'
+    }
+  },
+  methods: {
+    throttle (delay, fn) {
+      let lastCall = 0
+      return function (...args) {
+        const now = (new Date()).getTime()
+        if (now - lastCall < delay) {
+          return
+        }
+        lastCall = now
+        return fn(...args)
+      }
+    },
+    updateDialogueScale (els) {
+      function update () {
+        els.forEach(el => {
+          var offsetY = el.offsetTop - window.scrollY
+          var offsetYPourcent = offsetY / window.innerHeight
+
+          if (offsetYPourcent > -0.05 && offsetYPourcent < 1.05) {
+            var scale = 0.8 + (offsetYPourcent * 0.4)
+            el.style.transform = 'scale(' + scale + ')'
+            el.style.color = 'white'
+          } else {
+            el.style.color = 'red'
+          }
+        })
+        requestAnimationFrame(update)
+      }
+      update()
+    },
+    updateYearAndMonth (els) {
+      els.forEach(el => {
+        var offsetY = el.offsetTop - window.scrollY
+        var offsetYPourcent = offsetY / window.innerHeight
+        if (offsetYPourcent > 0 && offsetYPourcent < 0.5) {
+          const year = el.getAttribute('data-year')
+          const month = el.getAttribute('data-month')
+          if (this.currentMonth !== year) {
+            this.currentYear = year
+          }
+          if (this.currentMonth !== month) {
+            this.currentMonth = month
+          }
+        }
+      })
+    },
+    smoothScroll (e) {
+      e.preventDefault()
+      var scrollTime = 1.2 // Scroll time
+      var scrollDistance = 70 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
+      var delta = e.wheelDelta / 120 || -e.detail / 3
+      var scrollTop = window.scrollY
+      var finalScroll = scrollTop - parseInt(delta * scrollDistance)
+      this.currentScroll = finalScroll
+
+      TweenMax.to(window, scrollTime, {
+        scrollTo: { y: finalScroll, autoKill: true },
+        ease: Power3.easeOut,
+        autoKill: true,
+        overwrite: 5
+      })
+    },
+    onMouseWheel (e, dialoguesBlocks) {
+      this.smoothScroll(e)
+      this.updateYearAndMonth(dialoguesBlocks)
+    },
+    onPageEnter () {
+      window.addEventListener('mousewheel', this.onMouseWheel)
+      TweenMax.to(window, 2.5, {
+        scrollTo: { y: this.currentScroll },
+        ease: Power2.easeInOut,
+        delay: 0.7
+      })
+    },
+    onPageLeave () {
+      window.removeEventListener('mousewheel', this.onMouseWheel)
+    }
+  },
+  mounted () {
+    const dialogueBlocks = document.querySelectorAll('.dialogue-block')
+    // const yearBlocks = document.querySelectorAll('.year')
+
+    window.addEventListener('mousewheel', (e) => {
+      this.onMouseWheel(e, dialogueBlocks)
+    })
+    this.updateDialogueScale(dialogueBlocks)
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'dialogue') {
+        this.onPageEnter()
+      } else {
+        this.onPageLeave()
+      }
     }
   }
 }
@@ -59,7 +159,17 @@ export default {
 
 <style scoped lang="scss">
 #dialogue {
-  padding-top: 40px;
+
+  .test {
+    z-index: 1000;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    color: red;
+    font-size: 30px;
+  }
+
+  padding-top: 30vh;
   position: relative;
   h1 {
     font-size: 26px;
@@ -68,8 +178,9 @@ export default {
   .gradient-top {
     z-index: 5;
     position: fixed;
-    width: 80vw;
-    height: 22vh;
+    max-width: 1400px;
+    width: 80%;
+    height: 40vh;
     top: 0;
     background: -moz-linear-gradient(top, rgba(11,11,11,1) 0%, rgba(11,11,11,0.99) 1%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(11,11,11,1) 0%,rgba(11,11,11,0.99) 1%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
@@ -80,13 +191,13 @@ export default {
   .narration-intro {
     text-align: center;
     margin-bottom: 10vh;
-    padding-top: 10vh;
   }
 
   .dialogue-block {
     width: 75%;
     display: flex;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
+    transition: transform 0.1s ease;
 
     p {
       margin: 0;

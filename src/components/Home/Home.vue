@@ -94,9 +94,7 @@ export default {
       let lastCall = 0
       return function (...args) {
         const now = (new Date()).getTime()
-        if (now - lastCall < delay) {
-          return
-        }
+        if (now - lastCall < delay) return
         lastCall = now
         return fn(...args)
       }
@@ -112,10 +110,26 @@ export default {
       } else {
         this.changeStep(this.step - 1)
       }
+    },
+    onPageEnter () {
+      // window.addEventListener('mousewheel', this.throttle(400, this.onMouseWheel))
+    },
+    onPageLeave () {
+      // window.removeEventListener('mousewheel', this.onMouseWheel)
     }
   },
   mounted () {
     window.addEventListener('mousewheel', this.throttle(400, this.onMouseWheel))
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'home') {
+        this.onPageEnter()
+      } else {
+        console.log('leave')
+        this.onPageLeave()
+      }
+    }
   }
 }
 </script>
@@ -218,6 +232,7 @@ export default {
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
+      width: 100%;
       img, .text {
         width: 45%;
       }
