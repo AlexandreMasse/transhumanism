@@ -3,20 +3,6 @@
     "monthName": "October",
     "sources": [
       {
-        "date": "10/10/2017",
-        "title": "La mémoire dans la peau",
-        "link": "https://www.latribune.fr/opinions/blogs/homo-numericus/la-memoire-dans-la-peau-753416.html",
-        "author": "Philippe Boyer",
-        "media": "La Tribune"
-      },
-      {
-        "date": "15/10/2017",
-        "title": "Soldat augmenté : une combinaison de combat résiste aux explosions nucléaires",
-        "link": "https://iatranshumanisme.com/2017/10/15/soldat-augmente-combinaison-combat-resiste-explosions-nucleaires/",
-        "author": "Jaesa",
-        "media": "iatranshumanisme"
-      },
-      {
         "date": "7/10/2017",
         "title": "DeepMind vient de créer un comité d’éthique pour l’intelligence artificielle",
         "link": "https://iatranshumanisme.com/2017/10/07/deepmind-vient-de-creer-comite-dethique-lintelligence-artificielle/",
@@ -24,11 +10,25 @@
         "media": "iatranshumanisme"
       },
       {
+        "date": "10/10/2017",
+        "title": "La mémoire dans la peau",
+        "link": "https://www.latribune.fr/opinions/blogs/homo-numericus/la-memoire-dans-la-peau-753416.html",
+        "author": "Philippe Boyer",
+        "media": "La Tribune"
+      },
+      {
         "date": "12/10/2017",
         "title": "Tables rondes sur le transhumanisme: les raisons d'une annulation... très discrète",
         "link": "https://www.placegrenet.fr/2017/10/12/tables-rondes-transhumanisme-raisons-annulation-tres-discrete/156685",
         "author": "FM",
         "media": "Place Gre'net"
+      },
+      {
+        "date": "15/10/2017",
+        "title": "Soldat augmenté : une combinaison de combat résiste aux explosions nucléaires",
+        "link": "https://iatranshumanisme.com/2017/10/15/soldat-augmente-combinaison-combat-resiste-explosions-nucleaires/",
+        "author": "Jaesa",
+        "media": "iatranshumanisme"
       },
       {
         "date": "26/10/2017",
@@ -71,11 +71,11 @@
     "monthName": "November",
     "sources": [
       {
-        "date": "18 septembre",
-        "title": "Titre du super article sur le trashumanism",
-        "link": "#",
-        "author": "Alexandre Massé",
-        "media": "Le Monde"
+        "date": "03/11/12",
+        "title": "Becoming Post-Human",
+        "link": "http://thepolitic.org/becoming-post-human/",
+        "author": "Kishore Chundi",
+        "media": "The Politic"
       }
     ]
   },
@@ -123,6 +123,27 @@
     "monthName": "January",
     "sources": [
       {
+        "date": "08/01/18",
+        "title": "Transhumanisme : Google, la boîte qui se bat contre la mort",
+        "link": "https://www.tf1.fr/tmc/quotidien-avec-yann-barthes/videos/transhumanisme-google-boite-se-bat-contre-mort.html",
+        "author": "TF1",
+        "media": "Quotidien"
+      },
+      {
+        "date": "09/01/18",
+        "title": "Invité : Frédéric Beigbeder en quête d'immortalité",
+        "link": "https://www.tf1.fr/tmc/quotidien-avec-yann-barthes/videos/frederic-beigbeder-quete-d-immortalite.html",
+        "author": "Frédéric Beigbeder",
+        "media": "Quotidien"
+      },
+      {
+        "date": "09/01/18",
+        "title": "Frédéric Beigbeder souhaite devenir plus raisonnable pour vivre plus longtemps",
+        "link": "https://www.24matins.fr/frederic-beigbeder-souhaite-devenir-plus-raisonnable-vivre-plus-longtemps-679876",
+        "author": "Lionel Durel",
+        "media": "24matins"
+      },
+      {
         "date": "10/01/2018",
         "title": "«Le transhumanisme, la fin de la solidarité?»",
         "link": "http://www.lefigaro.fr/vox/societe/2018/01/10/31003-20180110ARTFIG00274-luc-ferry-le-transhumanisme-la-fin-de-la-solidarite.php",
@@ -137,11 +158,11 @@
         "media": "Mediapart"
       },
       {
-        "date": "09/01/18",
-        "title": "Invité : Frédéric Beigbeder en quête d'immortalité",
-        "link": "https://www.tf1.fr/tmc/quotidien-avec-yann-barthes/videos/frederic-beigbeder-quete-d-immortalite.html",
-        "author": "Frédéric Beigbeder",
-        "media": "Quotidien"
+        "date": "25/01/18",
+        "title": "Lutter contre la mort en transférant sa conscience",
+        "link": "http://www.gentside.com/netflix/lutter-contre-la-mort-en-transferant-sa-conscience_art83407.html",
+        "author": "Sophie Bernard",
+        "media": "Gentside"
       },
       {
         "date": "27/01/18",
@@ -163,14 +184,7 @@
         "media": "Biiinge Konbini"
       },
       {
-        "date": "10/02/18",
-        "title": "Transhumanisme",
-        "link": "https://www.futura-sciences.com/tech/definitions/technologie-transhumanisme-16985/",
-        "author": "la rédaction de Futura",
-        "media": "Futura Tech"
-      },
-      {
-        "date": "02/01/18",
+        "date": "02/02/18",
         "title": "Podcast #7 : transhumanisme vs. religions",
         "link": "https://usbeketrica.com/article/podcast-7-transhumanisme-vs-religions",
         "author": "Usbek & Rica",
@@ -184,11 +198,11 @@
         "media": "L'Express"
       },
       {
-        "date": "22/02/2018",
-        "title": "The Red Strings Club” : sous les cocktails cyberpunks, les interrogations transhumanistes",
-        "link": "https://www.lexpress.fr/actualite/monde/asie/manipulations-genetiques-augmentation-cerebrale-la-chine-est-ultratranshumaniste_1982664.html",
-        "author": "Julien Foussereau",
-        "media": "Télérama"
+        "date": "10/02/18",
+        "title": "Transhumanisme",
+        "link": "https://www.futura-sciences.com/tech/definitions/technologie-transhumanisme-16985/",
+        "author": "la rédaction de Futura",
+        "media": "Futura Tech"
       },
       {
         "date": "15/02/2018",
@@ -196,6 +210,20 @@
         "link": "http://www.genethique.org/fr/un-britannique-se-revendique-premier-cyborg-du-monde-mi-homme-mi-robot-69190.html#.WrzSL9NubOY",
         "author": "Synthèse de presse bioéthique",
         "media": "Genethique"
+      },
+      {
+        "date": "19/02/2018",
+        "title": "Ils ont créé des embryons hybrides mouton-humain !",
+        "link": "https://sciencepost.fr/2018/02/ont-cree-embryons-hybrides-mouton-humain/",
+        "author": "Brice Louvet",
+        "media": "Science Post"
+      },
+      {
+        "date": "22/02/2018",
+        "title": "The Red Strings Club” : sous les cocktails cyberpunks, les interrogations transhumanistes",
+        "link": "https://www.lexpress.fr/actualite/monde/asie/manipulations-genetiques-augmentation-cerebrale-la-chine-est-ultratranshumaniste_1982664.html",
+        "author": "Julien Foussereau",
+        "media": "Télérama"
       }
     ]
   },
