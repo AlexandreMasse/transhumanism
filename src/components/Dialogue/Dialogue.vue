@@ -1,5 +1,6 @@
 <template>
   <div id="dialogue">
+    <div class="test">{{currentYear}} - {{currentMonth}}</div>
     <div class="gradient-top"></div>
 
     <dialogue-side-progression :dialogue="dialogue"/>
@@ -11,22 +12,22 @@
 
         <p>The article deals with //</p>
       </div>
-        <div v-for="(year, index) in dialogue" :key="index" class="year" :data-month="year.yearName">
-          <div v-for="(month, index) in year.months" :key="index" class="month" :data-month="month.monthName">
+        <div v-for="(year, index) in dialogue" :key="index" class="year" >
+          <div v-for="(month, index) in year.months" :key="index" class="month">
               <div v-for="(word, index) in month.words" :key="index">
 
-              <div v-if="word.type === 'NA'" class="dialogue-block na-talking" >
-                <div class="dialogue-name">N.A.</div>
+              <div v-if="word.type === 'NA'" class="dialogue-block na-talking" :data-month="month.monthName" :data-year="year.yearName">
+                <div class="dialogue-name">{{year.yearName}} - {{month.monthName}} N.A.</div>
                 <div class="dialogue-content">
                   <p v-if="word.article_included">
-                    {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
+                   {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
                   </p>
                   <p v-else>{{ word.content }}</p>
                 </div>
               </div>
 
-              <div v-if="word.type === 'BL'" class="dialogue-block bl-talking" :data-month="month.monthName">
-                <div class="dialogue-name">B.L.</div>
+              <div v-if="word.type === 'BL'" class="dialogue-block bl-talking" :data-month="month.monthName" :data-year="year.yearName">
+                <div class="dialogue-name">{{year.yearName}} - {{month.monthName}} B.L.</div>
                 <div class="dialogue-content">
                   <p v-if="word.article_included">
                     {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
@@ -52,7 +53,9 @@ export default {
   data () {
     return {
       dialogue,
-      currentScroll: 0
+      currentScroll: 0,
+      currentYear: '2017',
+      currentMonth: 'October'
     }
   },
   methods: {
@@ -72,8 +75,9 @@ export default {
         els.forEach(el => {
           var offsetY = el.offsetTop - window.scrollY
           var offsetYPourcent = offsetY / window.innerHeight
-          if (offsetYPourcent < 1.05) {
-            var scale = 0.5 + (offsetYPourcent * 0.7)
+
+          if (offsetYPourcent > -0.05 && offsetYPourcent < 1.05) {
+            var scale = 0.8 + (offsetYPourcent * 0.4)
             el.style.transform = 'scale(' + scale + ')'
             el.style.color = 'white'
           } else {
@@ -84,7 +88,23 @@ export default {
       }
       update()
     },
-    onMouseWheel (e) {
+    updateYearAndMonth (els) {
+      els.forEach(el => {
+        var offsetY = el.offsetTop - window.scrollY
+        var offsetYPourcent = offsetY / window.innerHeight
+        if (offsetYPourcent > 0 && offsetYPourcent < 0.5) {
+          const year = el.getAttribute('data-year')
+          const month = el.getAttribute('data-month')
+          if (this.currentMonth !== year) {
+            this.currentYear = year
+          }
+          if (this.currentMonth !== month) {
+            this.currentMonth = month
+          }
+        }
+      })
+    },
+    smoothScroll (e) {
       e.preventDefault()
       var scrollTime = 1.2 // Scroll time
       var scrollDistance = 70 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
@@ -100,9 +120,12 @@ export default {
         overwrite: 5
       })
     },
+    onMouseWheel (e, dialoguesBlocks) {
+      this.smoothScroll(e)
+      this.updateYearAndMonth(dialoguesBlocks)
+    },
     onPageEnter () {
       window.addEventListener('mousewheel', this.onMouseWheel)
-
       TweenMax.to(window, 2.5, {
         scrollTo: { y: this.currentScroll },
         ease: Power2.easeInOut,
@@ -114,9 +137,13 @@ export default {
     }
   },
   mounted () {
-    const els = document.querySelectorAll('.dialogue-block')
-    this.updateDialogueScale(els)
-    window.addEventListener('mousewheel', this.onMouseWheel)
+    const dialogueBlocks = document.querySelectorAll('.dialogue-block')
+    // const yearBlocks = document.querySelectorAll('.year')
+
+    window.addEventListener('mousewheel', (e) => {
+      this.onMouseWheel(e, dialogueBlocks)
+    })
+    this.updateDialogueScale(dialogueBlocks)
   },
   watch: {
     '$route' (to, from) {
@@ -132,6 +159,16 @@ export default {
 
 <style scoped lang="scss">
 #dialogue {
+
+  .test {
+    z-index: 1000;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+    color: red;
+    font-size: 30px;
+  }
+
   padding-top: 30vh;
   position: relative;
   h1 {
@@ -159,7 +196,7 @@ export default {
   .dialogue-block {
     width: 75%;
     display: flex;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
     transition: transform 0.1s ease;
 
     p {
