@@ -1,14 +1,9 @@
 <template>
   <div id="dialogue-side-progression">
 
-    <p class="year-title">
-      {{ year }}
-    </p>
-    <p class="month-title">
-      {{ month }}
-    </p>
-
     <div class="step-container">
+      <p class="year">{{ year }}</p>
+      <p class="month">{{ month }}</p>
       <div v-for="(step, index) in nbStep" class="step" :key="index" @click="onStepClick(index + 1)">
         <div class="line"></div>
       </div>
@@ -37,13 +32,15 @@
 </template>
 
 <script>
+import { TweenLite, Power1 } from 'gsap'
+
 export default {
   name: 'DialogueSideProgression',
   props: ['dialogue', 'year', 'month'],
   data () {
     return {
-      currentStep: 1,
-      nbStep: 20
+      currentStep: 0,
+      nbStep: 25
     }
   },
   methods: {
@@ -60,7 +57,6 @@ export default {
     },
     changeStep (nextStep) {
       if (nextStep > 0 && nextStep <= this.nbStep && this.currentStep !== nextStep) {
-
         this.currentStep = nextStep
 
         this.stepsElements.forEach((el, index) => {
@@ -68,19 +64,26 @@ export default {
           // el.classList.remove('max')
           // el.style.width = '20px'
           el.childNodes[0].style.width = '20px'
+          el.childNodes[0].style.opacity = null
 
           if ((index + 1) === nextStep) {
             // el.classList.add('max')
             // el.style.width = '40px'
             el.childNodes[0].style.width = '40px'
+            el.childNodes[0].style.opacity = '1'
+
+            TweenLite.to(this.monthElement, 0.4, {
+              top: el.offsetTop,
+              ease: Power1.easeOut
+            })
           }
 
           if (nextStep === (index + 2) || nextStep === index) {
             // el.classList.add('middle')
             // el.style.width = '30px'
             el.childNodes[0].style.width = '30px'
+            el.childNodes[0].style.opacity = '0.6'
           }
-
         })
 
         // const stepEl = this.stepsElements[nextStep-1]
@@ -93,10 +96,8 @@ export default {
       }
     },
     onStepClick (nextStep) {
-
-      const stepRatio = (nextStep - 1 ) / (this.nbStep - 1)
+      const stepRatio = (nextStep - 1) / (this.nbStep - 1)
       const scrollPosition = (document.body.scrollHeight - window.innerHeight) * stepRatio
-
       this.$emit('scrollToPosition', scrollPosition, 2.5, 0)
     },
     onScroll () {
@@ -113,9 +114,6 @@ export default {
     }
   },
   watch: {
-    'month' (to, from) {
-      console.log(to)
-    },
     '$route' (to, from) {
       if (to.name === 'dialogue') {
         this.onPageEnter()
@@ -127,18 +125,14 @@ export default {
 
   mounted () {
     this.stepsElements = this.$el.querySelectorAll('.step')
+    this.monthElement = this.$el.querySelector('.month')
     // this.dialogueContainer = document.querySelector('.dialogue-container')
     // const dialogueHeight = th
     // console.dir(dialogue.clientHeight)
 
     window.addEventListener('scroll', this.throttle(100, this.onScroll))
 
-
-    /* stepsElements.forEach((step, index) => {
-      step.addEventListener('mouseover', (e) => {
-
-      })
-    })*/
+    this.changeStep(1)
   }
 }
 </script>
@@ -149,59 +143,82 @@ export default {
     flex-direction: column;
     align-items: center;
     position: fixed;
-    top: 0vh;
-    right: 40px;
+    top: 50vh;
+    transform: translateY(-50%);
+    right: 100px;
     cursor: pointer;
 
-    .year-title, .month-title {
-      font-size: 20px;
-    }
-
-    .step {
+    .step-container {
       position: relative;
-      height: 20px;
-      width: 30px;
+      display: flex;
+      flex-direction: column;
+      height: 500px;
 
-      .line {
+      .month, .year {
         position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0;
-        background-color: white;
-        height: 3px;
-        width: 20px;
-        transition: width 0.5s ease;
+        left: 45px;
+        margin: 0;
+      }
+      .year {
+        font-size: 20px;
+        top: -30px;
       }
 
-      /*&:before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 0;
-        background-color: white;
-        height: 3px;
-        width: 20px;
-        transition: width 0.5s ease;
-      }
-
-      &.max:before {
-        width: 40px;
-      }
-      &.middle:before {
+      .step {
+        position: relative;
         width: 30px;
-      }*/
+        flex: 1;
 
-     /* &:hover {
+        .line {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          background-color: white;
+          height: 3px;
+          width: 20px;
+          opacity: 0.2;
+          transition: all 0.5s ease;
+        }
+
+        &:hover {
+          .line {
+            opacity: 0.8;
+          }
+        }
+
+        /*
         &:before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          background-color: white;
+          height: 3px;
+          width: 20px;
+          transition: width 0.5s ease;
+        }
+
+        &.max:before {
           width: 40px;
-          transition: width 0.5s ease;
         }
-        +:before {
+        &.middle:before {
           width: 30px;
-          transition: width 0.5s ease;
         }
-      }*/
+        */
+
+        /* &:hover {
+           &:before {
+             width: 40px;
+             transition: width 0.5s ease;
+           }
+           +:before {
+             width: 30px;
+             transition: width 0.5s ease;
+           }
+         }*/
+      }
     }
 
   }
