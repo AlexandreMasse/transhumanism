@@ -228,6 +228,7 @@ export default {
       width: 100%;
       img, .text {
         width: 45%;
+        max-height: 60vh;
       }
       img {
         animation: img-enter 1.1s 0.3s ease forwards;

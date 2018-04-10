@@ -9,7 +9,9 @@
     </p>
 
     <div class="step-container">
-      <div v-for="(step, index) in nbStep" class="step" :key="index" @click="changeStep(index + 1)"></div>
+      <div v-for="(step, index) in nbStep" class="step" :key="index" @click="onStepClick(index + 1)">
+        <div class="line"></div>
+      </div>
     </div>
 
     <!--
@@ -40,7 +42,7 @@ export default {
   props: ['dialogue', 'year', 'month'],
   data () {
     return {
-      currentStep: 3,
+      currentStep: 1,
       nbStep: 20
     }
   },
@@ -57,7 +59,6 @@ export default {
       }
     },
     changeStep (nextStep) {
-
       if (nextStep > 0 && nextStep <= this.nbStep && this.currentStep !== nextStep) {
 
         this.currentStep = nextStep
@@ -65,17 +66,21 @@ export default {
         this.stepsElements.forEach((el, index) => {
           // el.classList.remove('middle')
           // el.classList.remove('max')
-
-          el.style.width = '20px'
+          // el.style.width = '20px'
+          el.childNodes[0].style.width = '20px'
 
           if ((index + 1) === nextStep) {
             // el.classList.add('max')
-          }el.style.width = '40px'
+            // el.style.width = '40px'
+            el.childNodes[0].style.width = '40px'
+          }
 
           if (nextStep === (index + 2) || nextStep === index) {
             // el.classList.add('middle')
-            el.style.width = '30px'
+            // el.style.width = '30px'
+            el.childNodes[0].style.width = '30px'
           }
+
         })
 
         // const stepEl = this.stepsElements[nextStep-1]
@@ -87,27 +92,47 @@ export default {
         stepEl.nextSibling.classList.add('middle') */
       }
     },
-    onMouseWheel () {
-      // const scrollYPourcent = (window.scrollY + window.innerHeight) / this.dialogueContainer.clientHeight
+    onStepClick (nextStep) {
+
+      const stepRatio = (nextStep - 1 ) / (this.nbStep - 1)
+      const scrollPosition = (document.body.scrollHeight - window.innerHeight) * stepRatio
+
+      this.$emit('scrollToPosition', scrollPosition, 2.5, 0)
+    },
+    onScroll () {
       const scrollYPourcent = window.scrollY / (document.body.scrollHeight - window.innerHeight)
-
       const nextStep = Math.round(scrollYPourcent * this.nbStep)
-
       this.changeStep(nextStep)
+    },
+    onPageEnter () {
+      this.changeStep(1)
+      // window.addEventListener('scroll', this.throttle(100, this.onScroll))
+    },
+    onPageLeave () {
+      // window.removeEventListener('scroll', this.throttle(100, this.onScroll))
     }
   },
   watch: {
     'month' (to, from) {
       console.log(to)
+    },
+    '$route' (to, from) {
+      if (to.name === 'dialogue') {
+        this.onPageEnter()
+      } else {
+        this.onPageLeave()
+      }
     }
   },
+
   mounted () {
     this.stepsElements = this.$el.querySelectorAll('.step')
-    this.dialogueContainer = document.querySelector('.dialogue-container')
+    // this.dialogueContainer = document.querySelector('.dialogue-container')
     // const dialogueHeight = th
     // console.dir(dialogue.clientHeight)
 
-    window.addEventListener('mousewheel', this.onMouseWheel)
+    window.addEventListener('scroll', this.throttle(100, this.onScroll))
+
 
     /* stepsElements.forEach((step, index) => {
       step.addEventListener('mouseover', (e) => {
@@ -136,7 +161,19 @@ export default {
       position: relative;
       height: 20px;
       width: 30px;
-      &:before {
+
+      .line {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        background-color: white;
+        height: 3px;
+        width: 20px;
+        transition: width 0.5s ease;
+      }
+
+      /*&:before {
         content: '';
         position: absolute;
         top: 50%;
@@ -153,7 +190,7 @@ export default {
       }
       &.middle:before {
         width: 30px;
-      }
+      }*/
 
      /* &:hover {
         &:before {

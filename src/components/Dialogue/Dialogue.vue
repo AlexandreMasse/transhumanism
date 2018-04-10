@@ -2,7 +2,7 @@
   <div id="dialogue">
     <div class="gradient-top"></div>
 
-    <dialogue-side-progression :dialogue="dialogue" :year="currentYear" :month="currentMonth"/>
+    <dialogue-side-progression :dialogue="dialogue" :year="currentYear" :month="currentMonth" @scrollToPosition="scrollToPosition"/>
     <div class="dialogue-container">
       <div class="narration-intro">
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
@@ -69,7 +69,7 @@ export default {
         return fn(...args)
       }
     },
-    updateDialogueScale (els) {
+    updateDialogueScale (els, active = true) {
       function update () {
         els.forEach(el => {
           var offsetY = el.offsetTop - window.scrollY
@@ -79,8 +79,6 @@ export default {
             var scale = 0.8 + (offsetYPourcent * 0.4)
             el.style.transform = 'scale(' + scale + ')'
             el.style.color = 'white'
-          } else {
-            el.style.color = 'red'
           }
         })
         requestAnimationFrame(update)
@@ -119,30 +117,32 @@ export default {
         overwrite: 5
       })
     },
-    onMouseWheel (e, dialoguesBlocks) {
+    scrollToPosition (position, duration, delay) {
+      TweenMax.to(window, duration, {
+        scrollTo: { y: position },
+        ease: Power2.easeInOut,
+        delay: delay
+      })
+    },
+    onMouseWheel (e) {
       this.smoothScroll(e)
-      this.updateYearAndMonth(dialoguesBlocks)
+      this.updateYearAndMonth(this.dialogueBlocks)
     },
     onPageEnter () {
       window.addEventListener('mousewheel', this.onMouseWheel)
-      TweenMax.to(window, 2.5, {
-        scrollTo: { y: this.currentScroll },
-        ease: Power2.easeInOut,
-        delay: 0.7
-      })
+      this.scrollToPosition(this.currentScroll, 2.5, 0.7)
     },
     onPageLeave () {
       window.removeEventListener('mousewheel', this.onMouseWheel)
     }
   },
   mounted () {
-    const dialogueBlocks = document.querySelectorAll('.dialogue-block')
+    this.dialogueBlocks = document.querySelectorAll('.dialogue-block')
     // const yearBlocks = document.querySelectorAll('.year')
 
-    window.addEventListener('mousewheel', (e) => {
-      this.onMouseWheel(e, dialogueBlocks)
-    })
-    this.updateDialogueScale(dialogueBlocks)
+    window.addEventListener('mousewheel', this.onMouseWheel)
+
+    this.updateDialogueScale(this.dialogueBlocks)
   },
   watch: {
     '$route' (to, from) {
