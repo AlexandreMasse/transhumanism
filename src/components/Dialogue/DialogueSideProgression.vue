@@ -2,7 +2,7 @@
   <div id="dialogue-side-progression">
 
     <p class="year-title">
-      <!--{{ dialogue.yearName }}-->
+      {{ currentYear }}
     </p>
     <div v-for="(year, index) in dialogue" :key="index">
       <div v-for="(month, index) in year.months" :key="index">
@@ -21,7 +21,7 @@
 <script>
 export default {
   name: 'DialogueSideProgression',
-  props: ['dialogue'],
+  props: ['dialogue', 'currentYear', 'currentMonth'],
   data () {
     return {
     }
