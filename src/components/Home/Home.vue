@@ -16,7 +16,10 @@
       <div v-if="step === 1" class="section intro" key="1">
         <img src="../../assets/images/bioshock.png" alt="">
         <h1>Transhumanism</h1>
-        <p>the belief or theory that the human race can evolve beyond its current physical and mental limitations, especially by means of science and technology.</p>
+        <p>is an intellectual, cultural and scientific movement to improve human’s
+          physical and mental characteristics through technology.
+          With actual technological achievements, this subject first considered as an utopia is becoming more and more
+          real and raises legitimate questions.</p>
 
         <div id="discover-protagonists">
           <img src="../../assets/images/protagonist1.png" alt="">
@@ -33,31 +36,21 @@
         <div class="main">
           <div class="text">
             <h3>B.L.</h3>
-            <p>Scientist biologist<br>
-              Against transhumanism<br>
-              34 years old<br>
-              Married, 2 children<br>
-              Interested about technological progress and innovation<br>
-              Is worried about the future of her children<br>
-              Wary about new technologies and their consequences</p>
+            <p>B.R. is a 34 biological scientist. He is married, has two children and lives in the 15th arrondissement of Paris. He is quite interested about technological progress and innovation even if he is not really confident about it. He is worried about the future of his children especially because of transhumanism.
+            </p>
             </div>
-          <img src="../../assets/images/protagonist1.png" alt="">
+          <img src="../../assets/images/protagonist1.svg" alt="">
         </div>
       </div>
 
       <!--SECTION PROTAGONIST NA -->
       <div v-if="step === 3" id="protagonist-na" class="section protagonist" key="3">
         <div class="main">
-          <img src="../../assets/images/protagonist2.png" alt="">
+          <img src="../../assets/images/protagonist2.svg" alt="">
           <div class="text">
             <h3>N.A.</h3>
-            <p>Writer <br>
-              For transhumanism<br>
-              45 years old<br>
-              Young father<br>
-              Interested about technological progress and innovation<br>
-              Afraid of death<br>
-              Fascinated about new technologies that allow us to live longer</p>
+            <p>N.A. is a young dad of 31 years old and parisian writer. Afraid of death, he is very interested about technological and scientific progress that allow us to live longer.
+            </p>
             </div>
         </div>
       </div>
@@ -65,10 +58,10 @@
       <!--SECTION DISCOVER PROTAGONISTS -->
       <div v-if="step === 4" id="protagonists" class="section protagonist" key="4">
         <div class="main">
-          <img src="../../assets/images/protagonist3.png" alt="">
+          <img src="../../assets/images/protagonist3.svg" alt="">
           <div class="text">
-            <p>N.A. and B.L. met a few years ago because of the friendship of their wifes.</p>
-            <p>On April 10th 2018, while having a drink, they come up talking about transhumanism.</p>
+            <p>N.A. and B.L. met a few years ago thanks to the friendship of their wifes.</p>
+            <p>On April 12th 2018, while having a drink, they come up talking about transhumanism.</p>
           </div>
         </div>
         <router-link :to="{ name: 'dialogue'}">Discover dialogue</router-link>

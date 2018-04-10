@@ -3,7 +3,7 @@
     <div class="test">{{currentYear}} - {{currentMonth}}</div>
     <div class="gradient-top"></div>
 
-    <dialogue-side-progression :dialogue="dialogue"/>
+    <dialogue-side-progression :dialogue="dialogue" v-bind:currentYear="currentYear" v-bind:currentMonth="currentMonth"/>
     <div class="dialogue-container">
       <div class="narration-intro">
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
@@ -90,8 +90,8 @@ export default {
     },
     updateYearAndMonth (els) {
       els.forEach(el => {
-        var offsetY = el.offsetTop - window.scrollY
-        var offsetYPourcent = offsetY / window.innerHeight
+        let offsetY = el.offsetTop - window.scrollY
+        let offsetYPourcent = offsetY / window.innerHeight
         if (offsetYPourcent > 0 && offsetYPourcent < 0.5) {
           const year = el.getAttribute('data-year')
           const month = el.getAttribute('data-month')
@@ -106,11 +106,11 @@ export default {
     },
     smoothScroll (e) {
       e.preventDefault()
-      var scrollTime = 1.2 // Scroll time
-      var scrollDistance = 70 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
-      var delta = e.wheelDelta / 120 || -e.detail / 3
-      var scrollTop = window.scrollY
-      var finalScroll = scrollTop - parseInt(delta * scrollDistance)
+      let scrollTime = 1.2 // Scroll time
+      let scrollDistance = 200 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
+      let delta = e.wheelDelta / 120 || -e.detail / 3
+      let scrollTop = window.scrollY
+      let finalScroll = scrollTop - parseInt(delta * scrollDistance)
       this.currentScroll = finalScroll
 
       TweenMax.to(window, scrollTime, {
