@@ -8,8 +8,6 @@
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
 
         <p>N.A., the pro-transhumanism one has a newspaper and show his friend an article he just read about transhumanism.</p>
-
-        <p>The article deals with //</p>
       </div>
         <div v-for="(year, index) in dialogue" :key="index" class="year" >
           <div v-for="(month, index) in year.months" :key="index" class="month">
@@ -69,19 +67,19 @@ export default {
         return fn(...args)
       }
     },
-    updateDialogueScale (els) {
-      function update () {
-        els.forEach(el => {
-          var offsetY = el.offsetTop - window.scrollY
-          var offsetYPourcent = offsetY / window.innerHeight
+    updateDialogueScale () {
+      const update = () => {
+        this.dialogueBlocks.forEach(el => {
+          let offsetY = el.offsetTop - window.scrollY
+          let offsetYPourcent = offsetY / window.innerHeight
 
           if (offsetYPourcent > -0.05 && offsetYPourcent < 1.05) {
-            var scale = 0.8 + (offsetYPourcent * 0.4)
+            let scale = 0.8 + (offsetYPourcent * 0.4)
             el.style.transform = 'scale(' + scale + ')'
             el.style.color = 'white'
           }
         })
-        requestAnimationFrame(update)
+        this.raf = requestAnimationFrame(update)
       }
       update()
     },
@@ -89,10 +87,11 @@ export default {
       this.dialogueBlocks.forEach(el => {
         let offsetY = el.offsetTop - window.scrollY
         let offsetYPourcent = offsetY / window.innerHeight
+
         if (offsetYPourcent > 0 && offsetYPourcent < 0.5) {
           const year = el.getAttribute('data-year')
           const month = el.getAttribute('data-month')
-          if (this.currentMonth !== year) {
+          if (this.currentYear !== year) {
             this.currentYear = year
           }
           if (this.currentMonth !== month) {
@@ -133,19 +132,20 @@ export default {
     onPageEnter () {
       window.addEventListener('mousewheel', this.onMouseWheel)
       window.addEventListener('scroll', this.onScroll)
+      this.updateDialogueScale()
       this.scrollToPosition(this.currentScroll, 2.5, 0.7)
     },
     onPageLeave () {
       window.removeEventListener('mousewheel', this.onMouseWheel)
       window.removeEventListener('scroll', this.onScroll)
+      cancelAnimationFrame(this.raf)
     }
   },
   mounted () {
     this.dialogueBlocks = document.querySelectorAll('.dialogue-block')
     window.addEventListener('mousewheel', this.onMouseWheel)
     window.addEventListener('scroll', this.onScroll)
-
-    this.updateDialogueScale(this.dialogueBlocks)
+    this.updateDialogueScale()
   },
   watch: {
     '$route' (to, from) {

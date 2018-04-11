@@ -1,14 +1,12 @@
 <template>
   <div id="home-side-progression">
-   <!--  <button @click="moins">Moins</button>
-    <button @click="plus">Plus</button> -->
     <div class="step-container">
       <div class="background-line"></div>
       <div class="step-line"></div>
-      <div :class="currentStep >= 1 ? 'actif' : 'inactif'" class="step-dot" @click="changeStep(1)"></div>
-      <div :class="currentStep >= 2 ? 'actif' : 'inactif'" class="step-dot" @click="changeStep(2)"></div>
-      <div :class="currentStep >= 3 ? 'actif' : 'inactif'" class="step-dot" @click="changeStep(3)"></div>
-      <div :class="currentStep >= 4 ? 'actif' : 'inactif'" class="step-dot" @click="changeStep(4)"></div>
+      <div :class="currentStep >= 1 ? 'actif' : 'inactif'" class="step-dot" @click="changeStepOnClick(1)"></div>
+      <div :class="currentStep >= 2 ? 'actif' : 'inactif'" class="step-dot" @click="changeStepOnClick(2)"></div>
+      <div :class="currentStep >= 3 ? 'actif' : 'inactif'" class="step-dot" @click="changeStepOnClick(3)"></div>
+      <div :class="currentStep >= 4 ? 'actif' : 'inactif'" class="step-dot" @click="changeStepOnClick(4)"></div>
     </div>
   </div>
 </template>
@@ -27,16 +25,12 @@ export default {
     changeStep (nextStep) {
       if (nextStep >= 1 && nextStep <= this.nbStep) {
         this.currentStep = nextStep
-        this.stepLine.style.height = (nextStep - 1) * this.stepContainer.offsetHeight / (this.nbStep - 1) + 'px'
-        // Emit event for parent
-        this.$emit('changeStep', nextStep)
+        this.stepLine.style.height = ((nextStep - 1) * this.stepContainer.offsetHeight / (this.nbStep - 1)) * 0.995 + 'px'
       }
     },
-    plus () {
-      this.changeStep(this.currentStep + 1)
-    },
-    moins () {
-      this.changeStep(this.currentStep - 1)
+    changeStepOnClick (nextStep) {
+      // Emit event for parent
+      this.$emit('changeStep', nextStep)
     }
   },
   mounted () {
@@ -59,12 +53,8 @@ export default {
   align-items: center;
   position: fixed;
   top: 50vh;
-  right: 50px;
+  right: 60px;
   transform: translateY(-50%);
-
-  button {
-    margin-bottom: 20px;
-  }
 
   .step-container {
     position: relative;
