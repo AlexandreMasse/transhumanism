@@ -142,7 +142,6 @@ export default {
   },
   mounted () {
     this.dialogueBlocks = document.querySelectorAll('.dialogue-block')
-
     window.addEventListener('mousewheel', this.onMouseWheel)
     window.addEventListener('scroll', this.onScroll)
 

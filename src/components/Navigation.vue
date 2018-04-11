@@ -27,7 +27,7 @@ export default {
     changeRouteMarker (newRoute) {
       let currentRouteName = newRoute.name
       let currentRouteLink = document.querySelector('.route-' + currentRouteName)
-      TweenLite.to(this.marker, 0.2, {
+      TweenLite.to(this.marker, 0.3, {
         left: currentRouteLink.offsetLeft,
         width: currentRouteLink.offsetWidth,
         ease: Power1.easeInOut

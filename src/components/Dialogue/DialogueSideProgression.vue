@@ -40,7 +40,7 @@ export default {
   data () {
     return {
       currentStep: 0,
-      nbStep: 25
+      nbStep: 30
     }
   },
   methods: {

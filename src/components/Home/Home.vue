@@ -1,7 +1,7 @@
 <template>
   <div id="home">
 
-    <home-side-progression :step="step" @changeStep="changeStep"></home-side-progression>
+    <home-side-progression :step="step" @changeStep="changeStep"/>
 
     <transition name="small-logo" mode="out-in">
       <div v-if="step > 1" class="logo-small" key="logo">
@@ -51,7 +51,7 @@
             <h3>N.A.</h3>
             <p>N.A. is a young dad of 31 years old and parisian writer. Afraid of death, he is very interested about technological and scientific progress that allow us to live longer.
             </p>
-            </div>
+          </div>
         </div>
       </div>
 
@@ -105,14 +105,15 @@ export default {
       }
     },
     onPageEnter () {
-      // window.addEventListener('mousewheel', this.throttle(400, this.onMouseWheel))
+      window.addEventListener('mousewheel', this.throttleHandler)
     },
     onPageLeave () {
-      // window.removeEventListener('mousewheel', this.onMouseWheel)
+      window.removeEventListener('mousewheel', this.throttleHandler)
     }
   },
   mounted () {
-    window.addEventListener('mousewheel', this.throttle(400, this.onMouseWheel))
+    this.throttleHandler = this.throttle(400, this.onMouseWheel)
+    window.addEventListener('mousewheel', this.throttleHandler)
   },
   watch: {
     '$route' (to, from) {
@@ -200,18 +201,48 @@ export default {
       align-items: flex-end;
 
       img {
-        max-width: 100px;
-        bottom: 0;
+        height: 300px;
       }
 
-      > div {
+      div {
         cursor: pointer;
-
         .line {
+          position: relative;
           height: 60px;
           width: 1px;
-          background: white;
+          // background: white;
           margin: 20px auto 0 auto;
+
+          &:before {
+            position: absolute;
+            content: '';
+            background-color: white;
+            width: 100%;
+            height: 0;
+
+            animation: line 2s ease-in-out infinite;
+
+            @keyframes line {
+              0% {
+                top: 0;
+                bottom: unset;
+                height: 0;
+              }
+              50% {
+                top:0;
+                height: 100%;
+              }
+              51% {
+                top: unset;
+                bottom: 0;
+              }
+              100% {
+                height: 0;
+                bottom: 0;
+              }
+            }
+          }
+
         }
       }
     }
@@ -289,10 +320,23 @@ export default {
     }
 
     a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: absolute;
-      bottom: 10vh;
+      bottom: 20vh;
       left: 50%;
       transform: translateX(-50%);
+      border: 1px solid white;
+      text-decoration: none;
+      padding: 20px 60px;
+      transition: all 0.7s ease-out;
+
+      &:hover {
+        transition: all 0.7s ease-out;
+        background-color: white;
+        color: black;
+      }
     }
   }
 }
