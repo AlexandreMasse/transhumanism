@@ -55,10 +55,11 @@ export default {
     margin: 0 30px;
     padding: 15px 0 10px 0;
     color: #A7A7A7;
+    opacity: 0.5;
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
-    transition: color 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:first-of-type {
       margin-left: 0;
@@ -68,9 +69,15 @@ export default {
       margin-right: 0;
     }
 
+    &:hover {
+      opacity: 1;
+      transition: all 0.2s ease-in-out;
+    }
+
     &.router-link-exact-active {
-      transition: color 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
       color: white;
+      opacity: 1;
     }
 
   }
@@ -86,6 +93,7 @@ export default {
       left: 0;
       background-color: #979797;
       height: 1px;
+      width: 0;
     }
   }
 }

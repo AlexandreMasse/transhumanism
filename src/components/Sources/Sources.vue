@@ -8,7 +8,7 @@
         <div class="sources">
           <div class="source" v-for="(source, index) in month.sources" :key="index">
             <p class="date">{{source.date}}</p>
-            <p class="title"><a :href="source.link">{{source.title}}</a></p>
+            <p class="title"><a :href="source.link" target="_blank">{{source.title}}</a></p>
             <p class="author">Par {{source.author}} dans <span>{{source.media}}</span></p>
           </div>
         </div>

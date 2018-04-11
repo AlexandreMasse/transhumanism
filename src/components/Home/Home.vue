@@ -3,31 +3,35 @@
 
     <home-side-progression :step="step" @changeStep="changeStep"/>
 
-    <transition name="small-logo" mode="out-in">
-      <div v-if="step > 1" class="logo-small" key="logo">
+    <div :class="{'logo-big' : step === 1, 'logo-small': step > 1 }" class="logo">
+      <img src="../../assets/images/bioshock.png" alt="">
+      <h1>Transhumanism</h1>
+    </div>
+
+    <!-- <transition name="small-logo" mode="out-in">
+      <div v-if="step > 1" :class="{'logo-big' : step === 1, 'logo-small': step > 1 }" key="logo">
         <img src="../../assets/images/bioshock.png" alt="">
         <h2>Transhumanism</h2>
       </div>
-    </transition>
+    </transition> -->
 
     <transition name="section" mode="out-in">
 
       <!--SECTION INTRO -->
-      <div v-if="step === 1" class="section intro" key="1">
-        <img src="../../assets/images/bioshock.png" alt="">
-        <h1>Transhumanism</h1>
+      <div v-if="step === 1" id="intro" class="section" key="1">
+        <!--<img src="../../assets/images/bioshock.png" alt="">
+        <h1>Transhumanism</h1>-->
         <p>is an intellectual, cultural and scientific movement to improve human’s
           physical and mental characteristics through technology.
           With actual technological achievements, this subject first considered as an utopia is becoming more and more
           real and raises legitimate questions.</p>
-
         <div id="discover-protagonists">
-          <img src="../../assets/images/protagonist1.png" alt="">
+          <img src="../../assets/images/protagonist1.svg" alt="">
           <div @click="changeStep(2)">
             <p>Discover protagonists</p>
             <div class="line"></div>
           </div>
-          <img src="../../assets/images/protagonist2.png" alt="">
+          <img src="../../assets/images/protagonist2.svg" alt="">
         </div>
       </div>
 
@@ -36,7 +40,7 @@
         <div class="main">
           <div class="text">
             <h3>B.L.</h3>
-            <p>B.R. is a 34 biological scientist. He is married, has two children and lives in the 15th arrondissement of Paris. He is quite interested about technological progress and innovation even if he is not really confident about it. He is worried about the future of his children especially because of transhumanism.
+            <p>B.L. is a 34 biological scientist. He is married, has two children and lives in the 15th arrondissement of Paris. He is quite interested about technological progress and innovation even if he is not really confident about it. He is worried about the future of his children especially because of transhumanism.
             </p>
             </div>
           <img src="../../assets/images/protagonist1.svg" alt="">
@@ -112,7 +116,7 @@ export default {
     }
   },
   mounted () {
-    this.throttleHandler = this.throttle(400, this.onMouseWheel)
+    this.throttleHandler = this.throttle(500, this.onMouseWheel)
     window.addEventListener('mousewheel', this.throttleHandler)
   },
   watch: {
@@ -120,7 +124,6 @@ export default {
       if (to.name === 'home') {
         this.onPageEnter()
       } else {
-        console.log('leave')
         this.onPageLeave()
       }
     }
@@ -151,57 +154,73 @@ export default {
 }
 
 #home {
-  .section {
-    height: 100vh;
-  }
 
-  .logo-small {
+  .logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 2vh;
-    img {
-      width: 100px;
+    transition: all 1.2s ease;
+    > * {
+      transition: all 1.2s ease;
     }
-    h2 {
-      font-size:14px;
-      font-weight:400;
+
+    &.logo-big {
+      top: 7vh;
+      img {
+        height: 23vh;
+      }
+      h1 {
+        font-size: 48px;
+        font-weight: 400;
+      }
+    }
+
+    &.logo-small {
+      top: 3vh;
+      img {
+        height: 8vh;
+      }
+      h1 {
+        font-size:16px;
+        font-weight:400;
+      }
     }
   }
 
-  .intro {
-    padding-top: 70px;
+  #intro {
     position: relative;
+    padding-top: 44vh;
 
-    > img {
-      width: 400px;
+    /*> img {
+      height: 25vh;
       margin-bottom: 30px;
     }
 
     h1 {
       font-size: 48px;
       font-weight: 400;
-    }
+    }*/
 
     p {
       font-size: 22px;
       font-weight: 400;
       text-align: center;
-      width: 700px;
-      color: #F8F8F8;
+      width: 80%;
+      max-width: 700px;
       margin: 0 auto;
     }
+
     #discover-protagonists {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: flex-end;
 
       img {
-        height: 300px;
+        height: 25vh;
       }
 
       div {
@@ -209,18 +228,15 @@ export default {
         .line {
           position: relative;
           height: 60px;
-          width: 1px;
-          // background: white;
           margin: 20px auto 0 auto;
 
           &:before {
             position: absolute;
             content: '';
             background-color: white;
-            width: 100%;
+            width: 1px;
             height: 0;
-
-            animation: line 2s ease-in-out infinite;
+            animation: line 2.5s ease-in-out infinite;
 
             @keyframes line {
               0% {
@@ -242,11 +258,14 @@ export default {
               }
             }
           }
-
         }
       }
     }
   }
+  .section {
+    height: 100vh;
+  }
+
   .protagonist {
     .main {
       position: absolute;
@@ -259,7 +278,7 @@ export default {
       width: 100%;
       img, .text {
         width: 45%;
-        max-height: 60vh;
+        max-height: 55vh;
       }
       img {
         animation: img-enter 1.1s 0.3s ease forwards;
@@ -287,6 +306,10 @@ export default {
             transform: translateY(0);
             opacity: 1;
           }
+        }
+
+        h3 {
+          margin-top: 0;
         }
       }
     }
@@ -331,11 +354,19 @@ export default {
       text-decoration: none;
       padding: 20px 60px;
       transition: all 0.7s ease-out;
+      opacity: 0;
+      font-size: 20px;
+      animation: link 1.5s 1s ease forwards;
 
       &:hover {
         transition: all 0.7s ease-out;
         background-color: white;
         color: black;
+      }
+
+      @keyframes link {
+        from {opacity: 0}
+        to {opacity: 1}
       }
     }
   }
