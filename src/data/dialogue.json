@@ -82,7 +82,7 @@
           {
             "type": "BL",
             "article_included": false,
-            "content": "Amazing yes, if you can own it"
+            "content": "Amazing yes, if you can own it."
           },
           {
             "type": "NA",
@@ -125,13 +125,61 @@
         "monthName": "January",
         "words": [
           {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "There is also the serie Altered Carbon created by Netflix, where you can do mind-uploading and transfer your conscience to live again! Talking about this,",
+            "content_link": "Google invests 453 billions of dollars every year to reduce mortality",
+            "link": "https://www.tf1.fr/tmc/quotidien-avec-yann-barthes/videos/transhumanisme-google-boite-se-bat-contre-mort.html&sa=D&ust=1523489486803000&usg=AFQjCNFEgUOiwhLblm6G777HnNJ-Tf2dgg",
+            "content_after": "and especially to be able to record memory."
+          },
+          {
             "type": "BL",
-            "article_included": false,
-            "content": "Une carte unique suffirait. Aujourd’hui avec leur transhumanisme, ils ne sont plus en train d’améliorer ce qui nous entoure mais ce qui nous anime. Et pourquoi ? Pour nous rendre plus heureux ?"
-          },{
+            "article_included": true,
+            "content_before": "Our conscience will be like a software. The writer Frederic Beigdeber",
+            "content_link": "thinks that it’s the end of the Homosapiens.",
+            "link": "https://www.tf1.fr/tmc/quotidien-avec-yann-barthes/videos/frederic-beigbeder-quete-d-immortalite.html&sa=D&ust=1523489486793000&usg=AFQjCNFXB--PQi_W36n9INEoWQcAXvQkgQ",
+            "content_after": "It’s from his new book called “The endless life”."
+          },
+          {
             "type": "NA",
             "article_included": false,
-            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+            "content": "Have you read it?"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Yes and it’s really interesting. However, just like me he is worried about the access of these technologies. He predicts the creation of a “two-step humanity’ divided in rich immortals on a side, poor mortals on the other."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "If some people become immortal, they won’t need social security anymore."
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "One day we will be able to",
+            "content_link": "measure our life expectancy ou predict diseases,",
+            "link": "http://www.lefigaro.fr/vox/societe/2018/01/10/31003-20180110ARTFIG00274-luc-ferry-le-transhumanisme-la-fin-de-la-solidarite.php",
+            "content_after": "yes it will disappear. A new market is gonna blow."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "We could even sell prosthesis or organs."
+          },
+           {
+            "type": "BL",
+            "article_included": false,
+            "content": "Clearly, selling organs is forbidden but nothing prevent selling prosthesis. To the richest, the best prosthesis."
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "I really find all of this fascinating. As we said, artificial intelligence gets more clever every day. But humans also want to get more and more technologic. It’s a real paradox,",
+            "content_link": "robot becomes human and humans become robot.",
+            "link": "https://www.lesnumeriques.com/vie-du-net/transhumanisme-comment-l-individu-augmente-se-niche-dans-nos-tetes-a3493.html",
+            "content_after": ""
           }
         ]
       },
@@ -141,21 +189,148 @@
           {
             "type": "BL",
             "article_included": false,
-            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
-          },{
+            "content": "So the only viable way for us, is to become robots."
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "Well, you know the famous quote from Elon Musk: “",
+            "content_link": "If you can’t beat the machine, the best is to become one.",
+            "link": "https://www.futura-sciences.com/tech/definitions/technologie-transhumanisme-16985/",
+            "content_after": "”"
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Haha,",
+            "content_link": "British claimed the first cyborg creation,",
+            "link": "http://www.genethique.org/fr/un-britannique-se-revendique-premier-cyborg-du-monde-mi-homme-mi-robot-69190.html#.WrzSL9NubOY",
+            "content_after": "I mean the first man-cyborg."
+          },
+          {
             "type": "NA",
             "article_included": false,
-            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+            "content": "Oh yeah? And what can that “cyborg” do?"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Well there was this man, who was disable born and could only see in black and white. He got an antenna implanted to his brain that analyses light waves and allow him to transcript colors."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "What a wonderful technological progress! But what makes him a cyborg?"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Wait that’s no over! He is able to see more than common reality, he can capture infrared, ultraviolet and even see remotely thanks to an internet connexion in his brain."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "REALLY ?! This man comes from a SF-movie. I feel like in “The Six Billion Dollar Man”. You know where the main character has superhuman strength due to bionic implants and is  employed as a secret agent."
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Haha yes kind of. Have you heard about",
+            "content_link": "hybrid human-sheep embryo",
+            "link": "https://sciencepost.fr/2018/02/ont-cree-embryons-hybrides-mouton-humain/",
+            "content_after": "?"
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "What the hell!"
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Yes some company have no limit. In this case, the sheep only has 1% of human gene. But that show us the ability of modifying and blending our genes. In China, they already started testing theses kind of experimentation. But China clearly has no ethical standard,",
+            "content_link": "they are ultra-transhumanist.",
+            "link": "https://www.lexpress.fr/actualite/monde/asie/manipulations-genetiques-augmentation-cerebrale-la-chine-est-ultratranshumaniste_1982664.html",
+            "content_after": ""
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "It’s surprising that religions don’t react to all of this."
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Well Christian and Muslim religion deny transhumanism on every point. But some religion like Buddhism, where the human body is considered as a shell for the mind,",
+            "content_link": "is totally favorable.",
+            "link": "https://usbeketrica.com/article/podcast-7-transhumanisme-vs-religions",
+            "content_after": "In fact, the Dalai Lama supports 2045’s Avatar Project of creating a life support system for the human brain."
           }
         ]
       },
       {
         "monthName": "March",
-        "words": []
+        "words": [
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Isn’t it already the goal of the start-up “Nectome”?"
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Oh Nectome! I heard about",
+            "content_link": "he presentation of their project on March to some investors from Silicon Valley.",
+            "link": "http://www.lemonde.fr/pixels/article/2018/03/26/dans-la-silicon-valley-nectome-vend-l-immortalite-numerique_5276269_4408996.html",
+            "content_after": "Yes it’s one of their service. I mean, let’s say this is their plan for the future. They offer you to let your brain intact until we will be able to get the datas of your brain to make you reborn."
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "Humans are really afraid of death. But to be honest, I’m not against the idea of",
+            "content_link": "getting my brain put in a driver.",
+            "link": "http://www.rtl.fr/actu/futur/netctome-et-si-un-ordinateur-nous-rendait-immortel-7792784911",
+            "content_after": "This way, I might be able to see what the world looks like in 200 years!"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "That will cost you about 10 000 dollars. 21 0000 clients are already on a waiting list to try this dispositive."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Yes but you get a refund if the project fails. So, why not?"
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "It’s true… I would personally not do it. I mean I understand your opinion. Eric Salobir thinks that transhumanism is a kind of religion. The human being needs to believe in something to forget death and disease. A lot of people believe in God to be reassured,",
+            "content_link": "some people believe in transhumanism.",
+            "link": "https://www.youtube.com/watch?v=SKLTBrBT4js",
+            "content_after": ""
+          }
+        ]
       },
       {
         "monthName": "April",
-        "words": []
+        "words": [
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "It’s true. After all, transhumanism is alike the new eugenics."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Hey are you up to see “Update”, Leigh Whannell new movie ? I thinks it deals with transhumanism."
+          }, {
+            "type": "BL",
+            "article_included": false,
+            "content": "Sure let’s go !"
+          }
+
+        ]
       }
     ]
   }

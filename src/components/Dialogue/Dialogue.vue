@@ -88,7 +88,7 @@ export default {
         let offsetY = el.offsetTop - window.scrollY
         let offsetYPourcent = offsetY / window.innerHeight
 
-        if (offsetYPourcent > 0 && offsetYPourcent < 0.5) {
+        if (offsetYPourcent > 0 && offsetYPourcent < 0.9) {
           const year = el.getAttribute('data-year')
           const month = el.getAttribute('data-month')
           if (this.currentYear !== year) {
