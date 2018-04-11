@@ -99,7 +99,7 @@ export default {
     position: fixed;
     top: 50vh;
     right: 0;
-    height: 650px;
+    height: 75vh;
     transform: translateY(-55%) translateX(50%);
     opacity: 0.25;
     pointer-events: none;

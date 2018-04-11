@@ -151,11 +151,31 @@
       },
       {
         "monthName": "March",
-        "words": []
+        "words": [
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+          },{
+            "type": "NA",
+            "article_included": false,
+            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+          }
+        ]
       },
       {
-        "monthName": "April",
-        "words": []
+        "monthName": "March",
+        "words": [
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+          },{
+            "type": "NA",
+            "article_included": false,
+            "content": "Oui ! Regarde, ils sauvent des vies. En médecine, les chercheurs arrivent à réparer les anomalies génétiques, nos cellules malades, c’est fantastique tu ne trouves pas ?"
+          }
+        ]
       }
     ]
   }
