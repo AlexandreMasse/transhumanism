@@ -39,7 +39,7 @@
           {
             "type": "BL",
             "article_included": false,
-            "content": "I find it so dehumanizing to implement me technologic materials inside our own body. What’s the purpose of paying with our hand?"
+            "content": "I find it so dehumanizing to implement technologic materials inside my own body. What’s the purpose of paying with our hand?"
           },
           {
             "type": "NA",
@@ -49,7 +49,7 @@
           {
             "type": "BL",
             "article_included": false,
-            "content": "Having an only card could be enough. With their transhumanism, they are not modifying what’s around us but what’s inside us. But what’s the goal? Make us happier?"
+            "content": "Having an only card could be enough. With their transhumanism, they are not modifying what’s around us but what’s inside us. But for what purpose? Make us happier?"
           },
           {
             "type": "NA",
@@ -62,7 +62,7 @@
           {
             "type": "BL",
             "article_included": false,
-            "content": "At first look, it is. Except that we don’t think at what’s coming after."
+            "content": "At first sight, it is. Except that we don’t think at what’s coming after."
           },
           {
             "type": "NA",
@@ -73,6 +73,101 @@
             "type": "BL",
             "article_included": false,
             "content": "Well if you can modify sick genes, it means that you can modify every type of genes. Things will get out of control. We will be able to choose the eye color of our childs, their gender, their hair or their strength. We will be able to increase their  mental aptitudes, make them stronger or smarter."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Up to you, would it be a bad thing ?"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Clearly ! Making diseases disappear and becoming Man-God is an utopy. Focusing on increasing physical and mental performances implies forgetting what defines humanity."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "So you really think that curing someone’s cancer or helping a former tetraplegic walk again is the same thing as being dehumanized ?"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "No of course not. But problems come from misbehavior."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "They will not necessary be misbehavior."
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Hey wake up ! Of course there will be, there are some already. "
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Oh yeah ? Name one."
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Hey wake up ! Of course there will be, there are some already. "
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Oh I can name a few ! On octobre 25, ",
+            "content_link": "Saudi Arabia recognized Sofia being the first robot citizen in the world",
+            "link": "https://iatranshumanisme.com/2017/10/27/larabie-saoudite-accorde-citoyennete-a-robot/",
+            "content_after": ". She even has more right than women in this country!"
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "..."
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "We can also talk about technology doping for athletes. For instance, ",
+            "content_link": "Tiger Woods got an operation to improve his vision",
+            "link": "http://www.cnetfrance.fr/news/dopage-technologique-et-homme-augmente-une-autre-idee-du-sport-39859238.html",
+            "content_after": " and reach 10/10 on each eyes. How is this, not considered as cheating? What’s the limit between repairs and augmentation?"
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "But don’t you think there will be some restriction provided by the law? There are already some like Deep Mind, the leader of artificial intelligence, member of Alphabet",
+            "content_link": " who just created a committee about the ethic of AI",
+            "link": "https://iatranshumanisme.com/2017/10/07/deepmind-vient-de-creer-comite-dethique-lintelligence-artificielle/",
+            "content_after": ". And lots of topics are closely related to transhumanism."
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Indeed… But anyway, I don’t really think our society is ready to accept transhumanism in our life yet. Do you remember the meeting planned during the “Fête de la science”",
+            "content_link": " who was mysteriously canceled",
+            "link": "https://www.placegrenet.fr/2017/10/12/tables-rondes-transhumanisme-raisons-annulation-tres-discrete/156685",
+            "content_after": " ? If you want my opinion, this was censorship."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Such a weird story, I heard about it…"
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "But the worst is… cognitive augmentations.  There is a ",
+            "content_link": "device intended for the brain that can increase learning over 40%",
+            "link": "https://iatranshumanisme.com/2017/10/29/dispositif-cerebral-augmente-vitesse-dapprentissage-de-40/",
+            "content_after": "."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "It’s amazing !"
           }
         ]
       },
@@ -92,7 +187,40 @@
           {
             "type": "BL",
             "article_included": false,
-            "content": "Because it has a cost. These devices will be affordable to an few minority that can afford it. A huge gap will be created, expanding even more wealth inequality."
+            "content": "Because it would be so expensive. These devices will be affordable to a few minority that can afford it. A huge gap will be created, expanding even more wealth inequality."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "*thinking*"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "You should definitely watch the movie “Welcome to Gattaca”, you will get my point.."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "What is it about?"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "It’s not-too-distant future in which the society analyzes your DNA and determines where you belong in society. In a nutshell, humans are not equal anymore."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "What does equality has to do with all of this?"
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "Well ",
+            "content_link": "transhumanism could create huge inequality within and between communities",
+            "link": "http://thepolitic.org/becoming-post-human/",
+            "content_after": ". On a global scale, greater access to technology would give citizens of the developed world an actual biological advantage!"
           }
         ]
       },
@@ -101,18 +229,93 @@
         "words": [
           {
             "type": "NA",
-            "article_included": false,
-            "content": "Maintenant que tu en parles, j’ai récemment lu que même si nous n’en sommes qu’à l’air du deep learning et de l’intelligence artificielle qui s’éduque, bientôt, nous serons face à la conscience artificielle."
+            "article_included": true,
+            "content_before": "Your way of thinking is a bit extreme don’t you think? Anyway, I recently read that we are in a ",
+            "content_link": "deep learning age",
+            "link": "https://www.lesnumeriques.com/vie-du-net/l-intelligence-artificielle-c-est-maintenant-a3425.html",
+            "content_after": ", artificial intelligence teaches itself. We will soon be facing artificial conscience."
           },
           {
             "type": "BL",
             "article_included": false,
-            "content": "Rien d’étonnant, mais où tu veux en venir ?"
+            "content": "It’s not really surprising."
           },
           {
             "type": "NA",
             "article_included": false,
-            "content": "Et bien, nous allons devoir “prouver” notre utilité face à un monde saturé d’intelligence artificielle. Pour cela le système éducatif devra être complètement réformé. L’utilisation des neuroscience et de la technologie dans l’apprentissage sera indispensable."
+            "content": "I guess we will have to prove our value in a world saturated by artificial intelligence. To achieve this, the education system will have to be re-evaluated and reformed. Use of neuroscience and technology in learning will be indispensable."
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Well, just replace our brain with a machine and let’s get over it."
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Actually, this is the goal of some prosthesis."
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "You mean brain-prosthesis ?"
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "Yes"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Only you forgot that it will be impossible to replace a dead brain. You would have to replace it when it’s still operational. It’s not the purpose of a prosthesis"
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "But that’s the point ! According to scientists, humans will soon be able to ",
+            "content_link": "replace any of their limb or organ to get a new artificial augmented one",
+            "link": "https://acteursdeleconomie.latribune.fr/debats/conferences/generation-2050/2017-12-07/homme-augmente-nous-serons-tentes-de-remplacer-tous-nos-organes-meme-notre-cerveau-760735.html",
+            "content_after": "."
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "I heard about a guy who created ",
+            "content_link": "a second bionic hand",
+            "link": "http://sciencepost.fr/2017/12/humain-augmente-voici-double-main-bionique/",
+            "content_after": ". Productivity at its best !"
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Why not."
+          },
+          {
+            "type": "NA",
+            "article_included": true,
+            "content_before": "There is also this athlete, Aimee Mullins, ",
+            "content_link": "who needs prosthesis for her two legs",
+            "link": "https://www.letemps.ch/sciences/2017/12/19/aimee-mullins-conversation-une-femme-augmentee",
+            "content_after": " and she has like twenty of them! Just like shoes: she can match her legs with her moods or her needs."
+          },
+          {
+            "type": "BL",
+            "article_included": false,
+            "content": "Thoses prosthesis are not even needed. They’re just used to increase humanity…"
+          },
+          {
+            "type": "NA",
+            "article_included": false,
+            "content": "But applied to the brain, it could improve intelligence, create brain-computer. Possibilities are endless!"
+          },
+          {
+            "type": "BL",
+            "article_included": true,
+            "content_before": "I have a bad feeling about it. Did you watch ",
+            "content_link": "Black-Mirror",
+            "link": "http://biiinge.konbini.com/series/immortalite-humain-ameliore-series-sf-disent-de-nous/",
+            "content_after": "? The last season was just released. A “brain-computer”, as you say is used by a mom to spy on her daughter. The girl has an implant and the mother can see through her vision on a tablet. Of course things get quickly out of hands."
           }
         ]
       }

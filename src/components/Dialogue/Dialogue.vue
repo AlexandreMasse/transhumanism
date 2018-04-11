@@ -103,7 +103,7 @@ export default {
     smoothScroll (e) {
       e.preventDefault()
       let scrollTime = 1.5 // Scroll time
-      let scrollDistance = 200 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
+      let scrollDistance = 350 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
       let delta = e.wheelDelta / 120 || -e.detail / 3
       let scrollTop = window.scrollY
       let finalScroll = scrollTop - parseInt(delta * scrollDistance)
