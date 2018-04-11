@@ -6,7 +6,7 @@
          <router-view/>
       </keep-alive>
     </transition>
-    <a href="https://www.gobelins.fr/" class="gobelins-logo">
+    <a href="https://www.gobelins.fr/" target="_blank" class="gobelins-logo">
       <img src="./assets/images/gobelins_logo.png" alt="">
     </a>
 
@@ -49,10 +49,14 @@ export default {
   > div {
     position: relative;
     z-index: 2;
-    max-width: 1400px;
+    max-width: 1300px;
     width: 80%;
     margin: 0 auto;
     height: 100%;
+
+    &#dialogue {
+      width: 70%;
+    }
   }
 
   a.gobelins-logo {

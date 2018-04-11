@@ -1,9 +1,8 @@
 <template>
   <div id="dialogue">
-    <div class="test">{{currentYear}} - {{currentMonth}}</div>
     <div class="gradient-top"></div>
 
-    <dialogue-side-progression :dialogue="dialogue" v-bind:currentYear="currentYear" v-bind:currentMonth="currentMonth"/>
+    <dialogue-side-progression :dialogue="dialogue" :year="currentYear" :month="currentMonth" @scrollToPosition="scrollToPosition"/>
     <div class="dialogue-container">
       <div class="narration-intro">
         <p>The two protagonists are having drink and come up talking about transhumanism.</p>
@@ -17,7 +16,7 @@
               <div v-for="(word, index) in month.words" :key="index">
 
               <div v-if="word.type === 'NA'" class="dialogue-block na-talking" :data-month="month.monthName" :data-year="year.yearName">
-                <div class="dialogue-name">{{year.yearName}} - {{month.monthName}} N.A.</div>
+                <div class="dialogue-name">N.A.</div>
                 <div class="dialogue-content">
                   <p v-if="word.article_included">
                    {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
@@ -27,7 +26,7 @@
               </div>
 
               <div v-if="word.type === 'BL'" class="dialogue-block bl-talking" :data-month="month.monthName" :data-year="year.yearName">
-                <div class="dialogue-name">{{year.yearName}} - {{month.monthName}} B.L.</div>
+                <div class="dialogue-name">B.L.</div>
                 <div class="dialogue-content">
                   <p v-if="word.article_included">
                     {{ word.content_before }} <a :href="word.link" target="_blank">{{ word.content_link }}</a> {{ word.content_after }}
@@ -80,16 +79,14 @@ export default {
             var scale = 0.8 + (offsetYPourcent * 0.4)
             el.style.transform = 'scale(' + scale + ')'
             el.style.color = 'white'
-          } else {
-            el.style.color = 'red'
           }
         })
         requestAnimationFrame(update)
       }
       update()
     },
-    updateYearAndMonth (els) {
-      els.forEach(el => {
+    updateYearAndMonth () {
+      this.dialogueBlocks.forEach(el => {
         let offsetY = el.offsetTop - window.scrollY
         let offsetYPourcent = offsetY / window.innerHeight
         if (offsetYPourcent > 0 && offsetYPourcent < 0.5) {
@@ -106,7 +103,7 @@ export default {
     },
     smoothScroll (e) {
       e.preventDefault()
-      let scrollTime = 1.2 // Scroll time
+      let scrollTime = 1.5 // Scroll time
       let scrollDistance = 200 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
       let delta = e.wheelDelta / 120 || -e.detail / 3
       let scrollTop = window.scrollY
@@ -120,30 +117,36 @@ export default {
         overwrite: 5
       })
     },
-    onMouseWheel (e, dialoguesBlocks) {
+    scrollToPosition (position, duration, delay) {
+      TweenMax.to(window, duration, {
+        scrollTo: { y: position },
+        ease: Power2.easeInOut,
+        delay: delay
+      })
+    },
+    onMouseWheel (e) {
       this.smoothScroll(e)
-      this.updateYearAndMonth(dialoguesBlocks)
+    },
+    onScroll () {
+      this.updateYearAndMonth()
     },
     onPageEnter () {
       window.addEventListener('mousewheel', this.onMouseWheel)
-      TweenMax.to(window, 2.5, {
-        scrollTo: { y: this.currentScroll },
-        ease: Power2.easeInOut,
-        delay: 0.7
-      })
+      window.addEventListener('scroll', this.onScroll)
+      this.scrollToPosition(this.currentScroll, 2.5, 0.7)
     },
     onPageLeave () {
       window.removeEventListener('mousewheel', this.onMouseWheel)
+      window.removeEventListener('scroll', this.onScroll)
     }
   },
   mounted () {
-    const dialogueBlocks = document.querySelectorAll('.dialogue-block')
-    // const yearBlocks = document.querySelectorAll('.year')
+    this.dialogueBlocks = document.querySelectorAll('.dialogue-block')
 
-    window.addEventListener('mousewheel', (e) => {
-      this.onMouseWheel(e, dialogueBlocks)
-    })
-    this.updateDialogueScale(dialogueBlocks)
+    window.addEventListener('mousewheel', this.onMouseWheel)
+    window.addEventListener('scroll', this.onScroll)
+
+    this.updateDialogueScale(this.dialogueBlocks)
   },
   watch: {
     '$route' (to, from) {
@@ -159,16 +162,6 @@ export default {
 
 <style scoped lang="scss">
 #dialogue {
-
-  .test {
-    z-index: 1000;
-    position: fixed;
-    right: 40px;
-    top: 40px;
-    color: red;
-    font-size: 30px;
-  }
-
   padding-top: 30vh;
   position: relative;
   h1 {
@@ -178,10 +171,11 @@ export default {
   .gradient-top {
     z-index: 5;
     position: fixed;
-    max-width: 1400px;
-    width: 80%;
+    max-width: 1300px;
+    width: 70%;
     height: 40vh;
     top: 0;
+    pointer-events: none;
     background: -moz-linear-gradient(top, rgba(11,11,11,1) 0%, rgba(11,11,11,0.99) 1%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(11,11,11,1) 0%,rgba(11,11,11,0.99) 1%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(11,11,11,1) 0%,rgba(11,11,11,0.99) 1%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -190,31 +184,32 @@ export default {
 
   .narration-intro {
     text-align: center;
-    margin-bottom: 10vh;
+    margin-bottom: 130px;
   }
 
   .dialogue-block {
-    width: 75%;
+    width: 70%;
     display: flex;
-    margin-bottom: 5vh;
+    margin-bottom: 80px;
     transition: transform 0.1s ease;
 
     p {
       margin: 0;
       font-size: 20px;
-      line-height: 4vh;
+      line-height: 40px;
 
-      &::first-letter {
-        padding-left: 35px;
+     &::first-letter {
+        padding-left: 40px;
       }
 
       &:before {
         content: '';
         background: white;
         height: 2px;
-        width: 30px;
+        width: 25px;
         position: absolute;
-        margin-top: 2vh;
+        transform: translateY(-50%);
+        top: 20px;
       }
     }
     .dialogue-name {
