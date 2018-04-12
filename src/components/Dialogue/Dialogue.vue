@@ -36,17 +36,20 @@
           </div>
         </div>
     </div>
+    <credit/>
   </div>
 </template>
 
 <script>
 import dialogue from '../../data/dialogue.json'
 import DialogueSideProgression from './DialogueSideProgression'
+import Credit from '../Other/Credit'
 import { TweenMax, Power2, Power3 } from 'gsap'
 require('gsap/ScrollToPlugin')
 
 export default {
-  components: {DialogueSideProgression},
+  name: 'diaogue',
+  components: {DialogueSideProgression, Credit},
   data () {
     return {
       dialogue,
@@ -103,11 +106,10 @@ export default {
     smoothScroll (e) {
       e.preventDefault()
       let scrollTime = 1.5 // Scroll time
-      let scrollDistance = 350 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
+      let scrollDistance = 250 // Distance. Use smaller value for shorter scroll and greater value for longer scroll
       let delta = e.wheelDelta / 120 || -e.detail / 3
       let scrollTop = window.scrollY
       let finalScroll = scrollTop - parseInt(delta * scrollDistance)
-      this.currentScroll = finalScroll
 
       TweenMax.to(window, scrollTime, {
         scrollTo: { y: finalScroll, autoKill: true },
@@ -127,13 +129,14 @@ export default {
       this.smoothScroll(e)
     },
     onScroll () {
+      this.currentScroll = window.scrollY
       this.updateYearAndMonth()
     },
     onPageEnter () {
       window.addEventListener('mousewheel', this.onMouseWheel)
       window.addEventListener('scroll', this.onScroll)
       this.updateDialogueScale()
-      this.scrollToPosition(this.currentScroll, 2.5, 0.7)
+      this.scrollToPosition(this.currentScroll, 2.5, 0.6)
     },
     onPageLeave () {
       window.removeEventListener('mousewheel', this.onMouseWheel)
@@ -151,7 +154,7 @@ export default {
     '$route' (to, from) {
       if (to.name === 'dialogue') {
         this.onPageEnter()
-      } else {
+      } else if (from.name === 'dialogue') {
         this.onPageLeave()
       }
     }

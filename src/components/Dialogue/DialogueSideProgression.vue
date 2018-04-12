@@ -117,7 +117,7 @@ export default {
     '$route' (to, from) {
       if (to.name === 'dialogue') {
         this.onPageEnter()
-      } else {
+      } else if (from.name === 'dialogue') {
         this.onPageLeave()
       }
     }

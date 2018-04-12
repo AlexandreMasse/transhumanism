@@ -53,25 +53,43 @@
       </p>
     </div>
 
-    <div class="credit-container">
-      <div class="school">
-        <img src="../../assets/images/gobelins_logo.png" alt="">
-        <p>Gobelins l’école de l’image</p>
-        <p>BDDI 2018</p>
-      </div>
-      <div class="students">
-        <p>Develop by <a href="#">Alexandre Masse</a> & <a href="#">Audren Mauplot</a> - Design by <a href="#">Justine Lenouvel</a> & <a href="#">Cassandre Leguay</a></p>
-      </div>
-    </div>
+    <credit/>
+
     <img src="../../assets/images/bioshock.png" alt="" class="bioshock">
   </div>
 </template>
 
 <script>
+import Credit from '../Other/Credit.vue'
+import { TweenLite, Power2 } from 'gsap'
+require('gsap/ScrollToPlugin')
 export default {
   name: 'About',
+  components: {Credit},
   data () {
     return {
+    }
+  },
+  methods: {
+    scrollTop () {
+      TweenLite.to(window, 0.5, {
+        scrollTo: { y: 0 },
+        ease: Power2.easeInOut,
+        delay: 0
+      })
+    },
+    onPageEnter () {
+      this.scrollTop()
+    }
+  },
+  mounted () {
+    this.scrollTop()
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'about') {
+        this.onPageEnter()
+      }
     }
   }
 }
@@ -83,9 +101,9 @@ padding-top: 80px;
 padding-left: 40px;
 
   .about-container {
-    width: 70%;
+    width: 80%;
     max-width: 700px;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
   }
 
   h2 {
@@ -100,40 +118,6 @@ padding-left: 40px;
     text-align: left;
     line-height: 136%;
     letter-spacing: 1px;
-  }
-
-  .credit-container {
-    margin: 0 auto;
-    width: auto;
-    .school {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 50px;
-      img {
-        filter: grayscale(100%);
-        height: 35px;
-        margin-bottom: 8px;
-      }
-      p {
-        color: #535353;
-        font-size: 12px;
-        margin: 3px 0;
-        font-family: 'Roboto', sans-serif;
-      }
-    }
-    .students {
-      margin-bottom: 40px;
-      p {
-        font-size: 12px;
-        font-family: 'Roboto', sans-serif;
-        color: #535353;
-      }
-
-      a {
-        color: inherit;
-      }
-    }
   }
 
   img.bioshock {

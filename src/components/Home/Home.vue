@@ -123,7 +123,7 @@ export default {
     '$route' (to, from) {
       if (to.name === 'home') {
         this.onPageEnter()
-      } else {
+      } else if (from.name === 'home') {
         this.onPageLeave()
       }
     }
