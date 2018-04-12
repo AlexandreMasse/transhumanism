@@ -42,6 +42,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+$mediaMobile: 500px !default;
+
 #navigation {
   z-index: 100;
   display: inline-block;
@@ -49,7 +52,13 @@ export default {
   transform: rotate(-90deg) translateX(-100%);
   transform-origin: left;
   left: 40px;
-  top:35px;
+  top: 35px;
+  width: max-content;
+
+  @media screen and (max-width : $mediaMobile) {
+    top: 10px;
+    left: 22px;
+  }
 
   a {
     margin: 0 30px;
@@ -60,6 +69,11 @@ export default {
     font-size: 14px;
     font-weight: 700;
     transition: all 0.3s ease-in-out;
+
+    @media screen and (max-width : $mediaMobile) {
+      padding: 10px 0 10px 0;
+      margin: 0 15px
+    }
 
     &:first-of-type {
       margin-left: 0;

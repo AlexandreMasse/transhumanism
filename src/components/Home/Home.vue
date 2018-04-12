@@ -133,6 +133,8 @@ export default {
 
 <style scoped lang="scss">
 
+$mediaMobile: 500px !default;
+
 .section-enter-active {
   transition: all 0.5s ease-in;
 }
@@ -170,41 +172,61 @@ export default {
 
     &.logo-big {
       top: 6.5vh;
+      @media screen and (max-width : $mediaMobile) {
+        top: 3vh;
+      }
+
       img {
         height: 23vh;
+        @media screen and (max-width : $mediaMobile) {
+          height: 20vh;
+        }
       }
       h1 {
         font-size: 48px;
         font-weight: 400;
         margin-top: 1vh;
+
+        @media screen and (max-width : $mediaMobile) {
+          font-size: 30px;
+        }
+
       }
     }
 
     &.logo-small {
-      top: 3vh;
+      top: 2vh;
+
+      @media screen and (max-width : $mediaMobile) {
+        top: 1vh;
+      }
+
       img {
         height: 8vh;
+
+        @media screen and (max-width : $mediaMobile) {
+          top: 6vh;
+        }
+
       }
       h1 {
         font-size:16px;
         font-weight:400;
+
+        @media screen and (max-width : $mediaMobile) {
+          font-size:14px;
+        }
       }
     }
   }
 
   #intro {
-    position: relative;
+    //position: relative;
     padding-top: 44vh;
 
-    /*> img {
-      height: 25vh;
-      margin-bottom: 30px;
+    @media screen and (max-width : $mediaMobile) {
+      padding-top: 36vh;
     }
-
-    h1 {
-      font-size: 48px;
-      font-weight: 400;
-    }*/
 
     p {
       font-size: 20px;
@@ -213,6 +235,11 @@ export default {
       width: 80%;
       max-width: 700px;
       margin: 0 auto;
+
+      @media screen and (max-width : $mediaMobile) {
+        width: 90%;
+        font-size: 16px;
+      }
     }
 
     #discover-protagonists {
@@ -223,9 +250,25 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
+      margin: auto;
 
+      @media screen and (max-width : $mediaMobile) {
+        width: 90%;
+      }
       img {
         height: 25vh;
+
+        @media screen and (max-width : $mediaMobile) {
+          height: 15vh;
+        }
+      }
+
+      p {
+        text-align: center;
+        @media screen and (max-width : $mediaMobile) {
+          font-size: 13px;
+          margin: 0 auto;
+        }
       }
 
       div {
@@ -268,19 +311,19 @@ export default {
     }
   }
   .section {
-    height: 100vh;
+    // height: 100vh;
   }
-
   .protagonist {
     .main {
       position: absolute;
-      top:50vh;
+      top: 50vh;
       transform: translateY(-50%);
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
       width: 100%;
+
       img, .text {
         width: 45%;
         max-height: 55vh;
@@ -297,6 +340,12 @@ export default {
             opacity:1;
           }
         }
+
+        @media screen and (max-width : $mediaMobile) {
+          width: auto;
+          height: 150px;
+        }
+
       }
       .text {
         line-height: 2em;
@@ -313,38 +362,88 @@ export default {
           }
         }
 
+        @media screen and (max-width : $mediaMobile) {
+          width: 90%;
+          line-height: 1.5em;
+        }
+
+        p {
+          @media screen and (max-width : $mediaMobile) {
+            margin: 0;
+            font-size: 12px;
+          }
+        }
+
         h3 {
           margin-top: 0;
+          font-size: 42px;
+          font-weight: 400;
+
+          @media screen and (max-width : $mediaMobile) {
+            font-size: 18px;
+            margin-bottom: 10px;
+          }
         }
       }
     }
   }
   #protagonist-bl {
-    .text {
-      text-align: left;
-      font-family: 'Baskerville', sans-serif;
 
-      h3 {
-        color: #64A0F9;
-        font-size: 42px;
-        font-weight: 400;
+    .main {
+      @media screen and (max-width : $mediaMobile) {
+        flex-direction: column-reverse;
+      }
+
+      .text {
+        text-align: left;
+        font-family: 'Baskerville', sans-serif;
+
+        h3 {
+          color: #64A0F9;
+        }
       }
     }
+
   }
   #protagonist-na {
-    .text {
-      text-align: right;
-      font-family: 'Roboto', sans-serif;
-      h3 {
-        color: #F9C2BF;
-        font-size: 42px;
-        font-weight: 400;
+
+    .main {
+      @media screen and (max-width : $mediaMobile) {
+        flex-direction: column;
+      }
+
+      .text {
+        text-align: right;
+        font-family: 'Roboto', sans-serif;
+
+        h3 {
+          color: #F9C2BF;
+        }
       }
     }
   }
   #protagonists {
-    .text {
-      text-align: left;
+
+    .main {
+      @media screen and (max-width : $mediaMobile) {
+        flex-direction: column;
+      }
+
+      img {
+        @media screen and (max-width : $mediaMobile) {
+          width: 80%;
+        }
+      }
+
+      .text {
+        text-align: left;
+
+        @media screen and (max-width : $mediaMobile) {
+          margin-top: 20px;
+          text-align: center;
+        }
+
+      }
     }
 
     a {
@@ -362,6 +461,13 @@ export default {
       opacity: 0;
       font-size: 20px;
       animation: link 1.5s 1s ease forwards;
+
+      @media screen and (max-width : $mediaMobile) {
+        bottom: 7vh;
+        padding: 12px 35px;
+        font-size: 16px;
+        width: max-content;
+      }
 
       &:hover {
         transition: all 0.7s ease-out;

@@ -4,6 +4,7 @@
     <div class="step-container">
       <p class="year">{{ year }}</p>
       <p class="month">{{ month }}</p>
+      <p class="month-mobile">{{ month }}</p>
       <div v-for="(step, index) in nbStep" class="step" :key="index" @click="onStepClick(index + 1)">
         <div class="line"></div>
       </div>
@@ -138,7 +139,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+  $mediaMobile: 500px !default;
+
   #dialogue-side-progression {
+    z-index: 50;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -148,26 +153,64 @@ export default {
     right: 100px;
     cursor: pointer;
 
+    @media screen and (max-width : $mediaMobile) {
+      right: 0;
+    }
+
     .step-container {
       position: relative;
       display: flex;
       flex-direction: column;
       height: 500px;
 
-      .month, .year {
+      @media screen and (max-width : $mediaMobile) {
+        height: 450px;
+      }
+
+      .month, .month-mobile, .year {
         position: absolute;
         left: 45px;
         margin: 0;
+
+        @media screen and (max-width : $mediaMobile) {
+          left: unset;
+          right: 5px;
+        }
       }
+
+      .month {
+        @media screen and (max-width : $mediaMobile) {
+         display: none;
+        }
+      }
+
+      .month-mobile {
+        display: none;
+        @media screen and (max-width : $mediaMobile) {
+          display: block;
+          font-size: 13px;
+          top: -25px;
+        }
+      }
+
       .year {
         font-size: 20px;
         top: -30px;
+        @media screen and (max-width : $mediaMobile) {
+          font-size: 16px;
+          top: -50px;
+        }
       }
 
       .step {
         position: relative;
         width: 30px;
         flex: 1;
+
+        @media screen and (max-width : $mediaMobile) {
+          transform: scaleX(0.8);
+          transform-origin: right;
+        }
 
         .line {
           position: absolute;

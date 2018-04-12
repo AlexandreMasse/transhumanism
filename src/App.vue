@@ -26,6 +26,8 @@ export default {
 
 <style scoped lang="scss">
 
+$mediaMobile: 500px !default;
+
 .fade-enter-active {
   transition: opacity 0.7s ease-out;
 }
@@ -56,6 +58,9 @@ export default {
 
     &#dialogue {
       width: 70%;
+      @media screen and (max-width : $mediaMobile) {
+        width: 75%;
+      }
     }
   }
 
@@ -64,6 +69,12 @@ export default {
     bottom: 20px;
     left: 20px;
     cursor: pointer;
+
+    @media screen and (max-width : $mediaMobile) {
+      bottom: 15px;
+      left: 15px;
+    }
+
     img {
       height: 40px;
       filter: grayscale(100%)

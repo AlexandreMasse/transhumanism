@@ -163,6 +163,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+$mediaMobile: 500px !default;
+
 #dialogue {
   padding-top: 30vh;
   position: relative;
@@ -174,7 +177,7 @@ export default {
     z-index: 5;
     position: fixed;
     max-width: 1300px;
-    width: 70%;
+    width: 100%;
     height: 40vh;
     top: 0;
     pointer-events: none;
@@ -195,14 +198,28 @@ export default {
     margin-bottom: 80px;
     transition: transform 0.1s ease;
 
+    @media screen and (max-width : $mediaMobile) {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+
     p {
       margin: 0;
       font-size: 20px;
       line-height: 40px;
 
+      @media screen and (max-width : $mediaMobile) {
+        font-size: 12px;
+        line-height: 25px;
+      }
+
      &::first-letter {
         padding-left: 40px;
-      }
+
+       @media screen and (max-width : $mediaMobile) {
+         padding-left: 25px;
+       }
+     }
 
       &:before {
         content: '';
@@ -212,11 +229,20 @@ export default {
         position: absolute;
         transform: translateY(-50%);
         top: 20px;
+
+        @media screen and (max-width : $mediaMobile) {
+          width: 15px;
+          top: 13px;
+        }
       }
     }
     .dialogue-name {
       font-size: 25px;
       padding: 0 2vw;
+
+      @media screen and (max-width : $mediaMobile) {
+        font-size: 16px
+      }
     }
   }
 

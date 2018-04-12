@@ -47,6 +47,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$mediaMobile: 500px !default;
+
 #home-side-progression {
   display: flex;
   flex-direction: column;
@@ -55,6 +57,10 @@ export default {
   top: 50vh;
   right: 60px;
   transform: translateY(-50%);
+
+  @media screen and (max-width : $mediaMobile) {
+    right: 15px;
+  }
 
   .step-container {
     position: relative;
