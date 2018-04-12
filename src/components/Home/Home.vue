@@ -21,7 +21,7 @@
       <div v-if="step === 1" id="intro" class="section" key="1">
         <!--<img src="../../assets/images/bioshock.png" alt="">
         <h1>Transhumanism</h1>-->
-        <p>is an intellectual, cultural and scientific movement to improve human’s
+        <p>Transhumanism is an intellectual, cultural and scientific movement to improve human’s
           physical and mental characteristics through technology.
           With actual technological achievements, this subject first considered as an utopia is becoming more and more
           real and raises legitimate questions.</p>
@@ -102,22 +102,22 @@ export default {
       }
     },
     onMouseWheel (e) {
-      if (e.movementY < 0) {
+      if (e.deltaY > 0) {
         this.changeStep(this.step + 1)
       } else {
         this.changeStep(this.step - 1)
       }
     },
     onPageEnter () {
-      window.addEventListener('mousewheel', this.throttleHandler)
+      window.addEventListener('wheel', this.throttleHandler)
     },
     onPageLeave () {
-      window.removeEventListener('mousewheel', this.throttleHandler)
+      window.removeEventListener('wheel', this.throttleHandler)
     }
   },
   mounted () {
-    this.throttleHandler = this.throttle(500, this.onMouseWheel)
-    window.addEventListener('mousewheel', this.throttleHandler)
+    this.throttleHandler = this.throttle(1800, this.onMouseWheel)
+    window.addEventListener('wheel', this.throttleHandler)
   },
   watch: {
     '$route' (to, from) {
@@ -160,18 +160,23 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     transition: all 1.2s ease;
+
+    h1 {
+      margin: 0;
+    }
     > * {
       transition: all 1.2s ease;
     }
 
     &.logo-big {
-      top: 7vh;
+      top: 6.5vh;
       img {
         height: 23vh;
       }
       h1 {
         font-size: 48px;
         font-weight: 400;
+        margin-top: 1vh;
       }
     }
 
@@ -202,7 +207,7 @@ export default {
     }*/
 
     p {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 400;
       text-align: center;
       width: 80%;
@@ -347,7 +352,7 @@ export default {
       justify-content: center;
       align-items: center;
       position: absolute;
-      bottom: 20vh;
+      bottom: 12vh;
       left: 50%;
       transform: translateX(-50%);
       border: 1px solid white;

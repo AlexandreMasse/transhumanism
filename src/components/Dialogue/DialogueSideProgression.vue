@@ -102,7 +102,7 @@ export default {
     },
     onScroll () {
       const scrollYPourcent = window.scrollY / (document.body.scrollHeight - window.innerHeight)
-      const nextStep = Math.round(scrollYPourcent * this.nbStep)
+      const nextStep = Math.round(scrollYPourcent * this.nbStep + 0.5)
       this.changeStep(nextStep)
     },
     onPageEnter () {

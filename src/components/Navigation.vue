@@ -59,7 +59,7 @@ export default {
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     &:first-of-type {
       margin-left: 0;
@@ -71,11 +71,11 @@ export default {
 
     &:hover {
       opacity: 1;
-      transition: all 0.2s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
 
     &.router-link-exact-active {
-      transition: all 0.2s ease-in-out;
+      transition: all 0.3s ease-in-out;
       color: white;
       opacity: 1;
     }
